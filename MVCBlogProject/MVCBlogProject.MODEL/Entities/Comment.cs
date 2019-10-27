@@ -13,5 +13,8 @@ namespace MVCBlogProject.MODEL.Entities
         public string Text { get; set; }
         public string Owner { get; set; }
 
+        //todo: Bir yorumun bir makalesi olur!
+        //todo: bir yorumun bir kullanıcısı olur!
+
     }
 }

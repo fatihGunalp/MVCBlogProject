@@ -23,5 +23,6 @@ namespace MVCBlogProject.MAP.Maps
             Property(i => i.Password).IsRequired().HasColumnName("Şifre");
             Ignore(x => x.ConfirmPassword);
         }
+        
     }
 }

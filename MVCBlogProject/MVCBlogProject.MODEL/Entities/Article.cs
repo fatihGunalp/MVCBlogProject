@@ -14,6 +14,9 @@ namespace MVCBlogProject.MODEL.Entities
         public string Content { get; set; }
         public string Owner { get; set; }
 
+        //todo: Her bir makalenin birden fazla yorumu olabilir!
+        //todo: Her bir makalenin birden fazla etiketi olabilir!
+
 
     }
 }
