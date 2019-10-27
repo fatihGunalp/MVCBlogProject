@@ -19,10 +19,10 @@ namespace MVCBlogProject.DAL.Model.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new UserMap());
-            //modelBuilder.Configurations.Add(new TagMap());
-            //modelBuilder.Configurations.Add(new CommentMap());
-            //modelBuilder.Configurations.Add(new CategoryMap());
-            //modelBuilder.Configurations.Add(new ArticleMap());
+            modelBuilder.Configurations.Add(new TagMap());
+            modelBuilder.Configurations.Add(new CommentMap());
+            modelBuilder.Configurations.Add(new CategoryMap());
+            modelBuilder.Configurations.Add(new ArticleMap());
 
             base.OnModelCreating(modelBuilder);
         }
