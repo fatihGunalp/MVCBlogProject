@@ -22,7 +22,5 @@ namespace MVCBlogProject.MODEL.Entities
         public DateTime? BirthDate { get; set; }
         public Roles? Role { get; set; }
        
-
-
     }
 }
