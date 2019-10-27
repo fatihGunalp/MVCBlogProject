@@ -17,5 +17,6 @@ namespace MVCBlogProject.MAP.Maps
             Property(i => i.BirthDate).IsOptional();
             Property(i => i.Name).IsRequired();
         }
+        
     }
 }
