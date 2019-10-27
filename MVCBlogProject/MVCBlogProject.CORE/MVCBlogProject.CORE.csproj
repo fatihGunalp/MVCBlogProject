@@ -48,7 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\CoreEntity.cs" />
+    <Compile Include="Entity\Enum\Status.cs" />
+    <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="Map\CoreMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ICoreService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
