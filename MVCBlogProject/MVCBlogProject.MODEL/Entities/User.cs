@@ -26,5 +26,7 @@ namespace MVCBlogProject.MODEL.Entities
         //todo: bir üyenin bir yetkisi olur.
         //todo: bir üyenin birden fazla yorumu olur.
        
+
+
     }
 }

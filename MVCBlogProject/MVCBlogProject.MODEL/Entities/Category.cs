@@ -11,7 +11,8 @@ namespace MVCBlogProject.MODEL.Entities
     {
         public string CategoryName { get; set; }
 
-        //todo: Her bir kategorinin birden fazla makalesi olabilir!
+        public List<Article> Articles { get; set; }
+        
         
     }
 }

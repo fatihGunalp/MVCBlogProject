@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 
 namespace MVCBlogProject.MODEL.Entities
 {
-    public class Comment:CoreEntity
+    public class Comment : CoreEntity
     {
         public string Header { get; set; }
         public string Text { get; set; }
         public string Owner { get; set; }
 
-        //todo: Bir yorumun bir makalesi olur!
-        //todo: bir yorumun bir kullanıcısı olur!
+
+        public Article Article { get; set; }
+        public User User { get; set; }
+        
 
     }
 }

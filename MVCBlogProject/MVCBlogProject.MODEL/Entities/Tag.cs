@@ -11,7 +11,8 @@ namespace MVCBlogProject.MODEL.Entities
     {
         public string Text { get; set; }
 
-        //todo: bir etiketin birden fazla makalesi olur!
+        public List<Article> Articles { get; set; }
+        
 
     }
 }
