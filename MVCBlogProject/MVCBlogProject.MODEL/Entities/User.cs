@@ -22,10 +22,10 @@ namespace MVCBlogProject.MODEL.Entities
         public DateTime? BirthDate { get; set; }
         public Roles? Role { get; set; }
 
-        //todo: bir üyenin birden fazla makalesi olur.
-        //todo: bir üyenin bir yetkisi olur.
-        //todo: bir üyenin birden fazla yorumu olur.
-       
+        public List<Article> Articles { get; set; }
+        public Roles Roles { get; set; }
+        public List<Comment> Comments { get; set; }
+      
 
 
     }
