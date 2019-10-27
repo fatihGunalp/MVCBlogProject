@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FD57F242-4DB7-44E3-9F66-BC05DA13894E}</ProjectGuid>
+    <ProjectGuid>{933B867D-B53E-44FA-9158-2C599CCCE1CC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MVCBlogProject.MODEL</RootNamespace>
-    <AssemblyName>MVCBlogProject.MODEL</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>MVCBlogProject.MAP</RootNamespace>
+    <AssemblyName>MVCBlogProject.MAP</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -48,24 +48,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Article.cs" />
-    <Compile Include="Entities\Category.cs" />
-    <Compile Include="Entities\Comment.cs" />
-    <Compile Include="Entities\Tag.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="Enums\Roles.cs" />
+    <Compile Include="Maps\UserMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MVCBlogProject.CORE\MVCBlogProject.CORE.csproj">
       <Project>{13796e05-a933-4e9b-97aa-420a02fe3b91}</Project>
       <Name>MVCBlogProject.CORE</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MVCBlogProject.MODEL\MVCBlogProject.MODEL.csproj">
+      <Project>{fd57f242-4db7-44e3-9f66-bc05da13894e}</Project>
+      <Name>MVCBlogProject.MODEL</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
