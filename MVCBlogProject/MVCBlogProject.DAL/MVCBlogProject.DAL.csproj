@@ -32,10 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Context\BlogContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,10 +60,15 @@
       <Project>{13796e05-a933-4e9b-97aa-420a02fe3b91}</Project>
       <Name>MVCBlogProject.CORE</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MVCBlogProject.MAP\MVCBlogProject.MAP.csproj">
+      <Project>{933B867D-B53E-44FA-9158-2C599CCCE1CC}</Project>
+      <Name>MVCBlogProject.MAP</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MVCBlogProject.MODEL\MVCBlogProject.MODEL.csproj">
       <Project>{fd57f242-4db7-44e3-9f66-bc05da13894e}</Project>
       <Name>MVCBlogProject.MODEL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
