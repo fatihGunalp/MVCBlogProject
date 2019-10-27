@@ -10,6 +10,8 @@ namespace MVCBlogProject.MODEL.Entities
     public class Category:CoreEntity
     {
         public string CategoryName { get; set; }
+
+        //todo: Her bir kategorinin birden fazla makalesi olabilir!
         
     }
 }
