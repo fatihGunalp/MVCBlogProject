@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maps\ArticleMap.cs" />
+    <Compile Include="Maps\CategoryMap.cs" />
+    <Compile Include="Maps\CommentMap.cs" />
+    <Compile Include="Maps\TagMap.cs" />
     <Compile Include="Maps\UserMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
