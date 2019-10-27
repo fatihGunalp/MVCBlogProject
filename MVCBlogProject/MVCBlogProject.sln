@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCBlogProject.SERVICE", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCBlogProject.MVCUI", "MVCBlogProject.MVCUI\MVCBlogProject.MVCUI.csproj", "{E2A613E7-5941-4110-81F2-222621925C53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCBlogProject.COMMON", "MVCBlogProject.COMMON\MVCBlogProject.COMMON.csproj", "{F03EB779-F548-4F25-A916-52B957DE72C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{E2A613E7-5941-4110-81F2-222621925C53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2A613E7-5941-4110-81F2-222621925C53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2A613E7-5941-4110-81F2-222621925C53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F03EB779-F548-4F25-A916-52B957DE72C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F03EB779-F548-4F25-A916-52B957DE72C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F03EB779-F548-4F25-A916-52B957DE72C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F03EB779-F548-4F25-A916-52B957DE72C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
