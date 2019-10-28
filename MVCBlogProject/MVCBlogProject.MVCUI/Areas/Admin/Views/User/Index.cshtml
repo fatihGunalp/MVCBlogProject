@@ -4,10 +4,10 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3>@ViewBag.Title</h3>
-    </div>
+<section class="panel panel-primary">
+    <header class="panel-heading">
+        @ViewBag.Title
+    </header>
     <div class="panel-body">
         <table class="table table-hover">
             <thead>
@@ -39,11 +39,11 @@
                     <td><span class="label label-success label-mini">Admin</span></td>
                     <td>
                         <a href="@Url.Action("Edit", "User")" class="btn btn-primary btn-xs"><i class="icon-pencil"></i></a>
-                        <a href="@Url.Action("Delete", "User")" class="btn btn-danger btn-xs"><i class="icon-trash "></i></a>
+                        <a data-toggle="modal" href="#userDeleteModal" class="btn btn-danger btn-xs"><i class="icon-trash "></i></a>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-</div>
-
+</section>
+@Html.Partial("_PartialDeleteUser")
