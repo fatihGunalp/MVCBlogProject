@@ -4,10 +4,10 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3>@ViewBag.Title</h3>
-    </div>
+<section class="panel panel-primary">
+    <header class="panel-heading">
+        @ViewBag.Title
+    </header>
     <div class="panel-body">
 
         @using (Html.BeginForm("Create", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -72,7 +72,7 @@
         }
 
     </div>
-</div>
+</section>
 @section styles{
     <link rel="stylesheet" type="text/css" href="~/Content/assets/bootstrap-datepicker/css/datepicker.css" />
 }
