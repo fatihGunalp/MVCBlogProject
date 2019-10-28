@@ -1,0 +1,70 @@
+﻿<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <li>
+                <a class="@Html.IsActive("Index", "Home")" href="@Url.Action("Index", "Home")">
+                    <i class="icon-dashboard"></i>
+                    <span>Anasayfa</span>
+                </a>
+            </li>
+
+            <li class="sub-menu">
+                <a class="@Html.IsActive("Article")" href="javascript:;">
+                    <i class="icon-book"></i>
+                    <span>Makale</span>
+                </a>
+                <ul class="sub">
+                    <li class="@Html.IsActive("Index", "Article")"><a href="@Url.Action("Index", "Article")">Listele</a></li>
+                    <li class="@Html.IsActive("Create", "Article")"><a href="@Url.Action("Create", "Article")">Ekle</a></li>
+                </ul>
+            </li>
+
+            <li class="sub-menu">
+                <a class="@Html.IsActive("Category")" href="javascript:;">
+                    <i class="icon-tasks"></i>
+                    <span>Kategori</span>
+                </a>
+                <ul class="sub">
+                    <li class="@Html.IsActive("Index", "Category")"><a href="@Url.Action("Index", "Category")">Listele</a></li>
+                    <li class="@Html.IsActive("Create", "Category")"><a href="@Url.Action("Create", "Category")">Ekle</a></li>
+                </ul>
+            </li>
+
+            <li class="sub-menu">
+                <a class="@Html.IsActive("Tag")" href="javascript:;">
+                    <i class="icon-tag"></i>
+                    <span>Etiket</span>
+                </a>
+                <ul class="sub">
+                    <li class="@Html.IsActive("Index", "Tag")"><a href="@Url.Action("Index", "Tag")">Listele</a></li>
+                    <li class="@Html.IsActive("Create", "Tag")"><a href="@Url.Action("Create", "Tag")">Ekle</a></li>
+                </ul>
+            </li>
+
+            <li class="sub-menu">
+                <a class="@Html.IsActive("Comment")" href="javascript:;">
+                    <i class="icon-comment"></i>
+                    <span>Yorum</span>
+                </a>
+                <ul class="sub">
+                    <li class="@Html.IsActive("Index", "Comment")"><a href="@Url.Action("Index", "Comment")">Listele</a></li>
+                    <li class="@Html.IsActive("Create", "Comment")"><a href="@Url.Action("Create", "Comment")">Ekle</a></li>
+                </ul>
+            </li>
+
+            <li class="sub-menu">
+                <a class="@Html.IsActive("User")" href="javascript:;">
+                    <i class="icon-user"></i>
+                    <span>Üye</span>
+                </a>
+                <ul class="sub">
+                    <li class="@Html.IsActive("Index", "User")"><a href="@Url.Action("Index", "User")">Listele</a></li>
+                    <li class="@Html.IsActive("Create", "User")"><a href="@Url.Action("Create", "User")">Ekle</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>

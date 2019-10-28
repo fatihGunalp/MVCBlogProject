@@ -1,5 +1,6 @@
 ﻿using MVCBlogProject.CORE.Entity;
 using MVCBlogProject.CORE.Service;
+using MVCBlogProject.DAL.Model.Context;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
@@ -13,16 +14,16 @@ namespace MVCBlogProject.SERVICE.Base
     {
 
         // TODO : Model katmanındaki model düzeldiğinde verilen isme göre burayı düzelteceğiz.
-        private static ProjectContext _db;
+        private static BlogContext _db;
 
         #region Singleton Pattern
-        public static ProjectContext db
+        public static BlogContext db
         {
             get
             {
                 if (_db == null)
                 {
-                    _db = new ProjectContext();
+                    _db = new BlogContext();
                 }
                 return _db;
             }
@@ -32,12 +33,12 @@ namespace MVCBlogProject.SERVICE.Base
 
        public void Add(T item)
         {
-            db.Set<T>.Add(item);
+            db.Set<T>().Add(item);
             db.SaveChanges();
         }
        public void Add(List<T> item)
         {
-            db.Set<T>.AddRange(item);
+            db.Set<T>().AddRange(item);
             db.SaveChanges();
         }
 
@@ -51,7 +52,7 @@ namespace MVCBlogProject.SERVICE.Base
         public void Update(T item)
         {
             // TODO: Find ile yaptığımız işlemi GetById ile yapacağız.Core katmanında ekli olmadığı için Find ile yaptık.
-            T updated = db.Set<T>.Find(item.ID);
+            T updated = db.Set<T>().Find(item.ID);
             DbEntityEntry entry = db.Entry(updated);
             entry.CurrentValues.SetValues(item);
             db.SaveChanges();
