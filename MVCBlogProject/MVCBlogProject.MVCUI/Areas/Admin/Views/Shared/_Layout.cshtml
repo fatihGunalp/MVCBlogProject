@@ -16,6 +16,7 @@
     <title>@ViewBag.Title - MVC Blog Projesi</title>
 
     @Styles.Render("~/Admin/css")
+    @RenderSection("styles", false)
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
     <!--[if lt IE 9]>
@@ -35,7 +36,7 @@
             <!--logo start-->
             <a href="@Url.Action("Index", "Home")" class="logo">MVC<span>Blog</span></a>
             <!--logo end-->
-            
+
             <div class="top-nav ">
                 <!--search & user info start-->
                 <ul class="nav pull-right top-menu">
@@ -45,7 +46,7 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="~/Content/AdminTheme/img/avatar1_small.jpg">
+                            <img alt="" src="~/Uploads/Users/profile.jpg" style="width:29px; height:29px">
                             <span class="username">Jhon Doue</span>
                             <b class="caret"></b>
                         </a>
@@ -64,8 +65,11 @@
         </header>
         <!--header end-->
         <!--sidebar start-->
-        
-        @Html.Partial("_PartialMenu")
+        <aside>
+
+            @Html.Partial("_PartialMenu")
+
+        </aside>
 
         <!--sidebar end-->
         <!--main content start-->
@@ -91,27 +95,28 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
     @Scripts.Render("~/Admin/js")
+    @RenderSection("scripts", false)
 
     <script>
 
-      //owl carousel
+        //owl carousel
 
-      $(document).ready(function() {
-          $("#owl-demo").owlCarousel({
-              navigation : true,
-              slideSpeed : 300,
-              paginationSpeed : 400,
-              singleItem : true,
-			  autoPlay:true
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true,
+                autoPlay: true
 
-          });
-      });
+            });
+        });
 
-      //custom select box
+        //custom select box
 
-      $(function(){
-          $('select.styled').customSelect();
-      });
+        $(function () {
+            $('select.styled').customSelect();
+        });
 
     </script>
 

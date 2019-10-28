@@ -4,5 +4,46 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>İçerik</h2>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3>@ViewBag.Title</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Görsel</th>
+                    <th>Adı</th>
+                    <th>Soyadı</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>E-Posta Adresi</th>
+                    <th>Durum</th>
+                    <th>Telefon</th>
+                    <th>Doğum Tarihi</th>
+                    <th>Yetki</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="~/Uploads/Users/profile.jpg" style="width:29px; height:29px" />
+                    </td>
+                    <td>Ömer Faruk</td>
+                    <td>Bal</td>
+                    <td>omer</td>
+                    <td>omerbal@gmail.com</td>
+                    <td><span class="label label-info label-mini">Pasif</span></td>
+                    <td>0530 035 9681</td>
+                    <td>03.03.1983</td>
+                    <td><span class="label label-success label-mini">Admin</span></td>
+                    <td>
+                        <a href="@Url.Action("Edit", "User")" class="btn btn-primary btn-xs"><i class="icon-pencil"></i></a>
+                        <a href="@Url.Action("Delete", "User")" class="btn btn-danger btn-xs"><i class="icon-trash "></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
