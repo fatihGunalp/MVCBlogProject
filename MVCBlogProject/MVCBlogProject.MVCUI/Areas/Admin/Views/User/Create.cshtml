@@ -1,0 +1,91 @@
+﻿@model User
+@{
+    ViewBag.Title = "Kullanıcı Oluştur";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3>@ViewBag.Title</h3>
+    </div>
+    <div class="panel-body">
+
+        @using (Html.BeginForm("Create", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                @Html.LabelFor(x => x.Name)
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", autofocus = "autofocus" })
+                @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Surname)
+                @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Surname, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Username)
+                @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Username, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Email)
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Password)
+                @Html.TextBoxFor(x => x.Password, new { type = "password", @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.ConfirmPassword)
+                @Html.TextBoxFor(x => x.ConfirmPassword, new { type = "password", @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.ConfirmPassword, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Adress)
+                @Html.TextAreaFor(x => x.Adress, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Adress, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.PhoneNumber)
+                @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", data_mask = "0 (599) 999 9999" })
+                @Html.ValidationMessageFor(x => x.PhoneNumber, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.BirthDate)
+                @Html.TextBoxFor(x => x.BirthDate, new { @class = "form-control default-date-picker", data_mask = "99/99/9999" })
+                @Html.ValidationMessageFor(x => x.BirthDate, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Role)
+                @Html.EnumDropDownListFor(x => x.Role, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Role, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.ImagePath)
+                @Html.TextBoxFor(x => x.ImagePath, new { type = "file", @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.ImagePath, null, new { @class = "text-danger" })
+            </div>
+
+            <button class="btn btn-primary btn-block" type="submit">Kaydet</button>
+        }
+
+    </div>
+</div>
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/bootstrap-datepicker/css/datepicker.css" />
+}
+@section scripts{
+
+    <script type="text/javascript" src="~/Content/AdminTheme/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="~/Content/AdminTheme/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.default-date-picker').datepicker({
+                format: 'dd/mm/yyyy'
+            })
+        })
+
+    </script>
+}
