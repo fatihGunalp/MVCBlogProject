@@ -1,4 +1,4 @@
-﻿
+﻿@model List<User>
 @{
     ViewBag.Title = "Kullanıcılar";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -33,15 +33,51 @@
                     <td>Bal</td>
                     <td>omer</td>
                     <td>omerbal@gmail.com</td>
-                    <td><span class="label label-info label-mini">Pasif</span></td>
+                    <td><span class='label label-inverse label-mini'>Aktif</span></td>
                     <td>0530 035 9681</td>
                     <td>03.03.1983</td>
-                    <td><span class="label label-success label-mini">Admin</span></td>
+                    <td><span class='label label-success label-mini'>Yönetici</span></td>
                     <td>
-                        <a href="@Url.Action("Edit", "User")" class="btn btn-primary btn-xs"><i class="icon-pencil"></i></a>
+                        <a href="@Url.Action("Edit", "User", new { ID = 1 })" class="btn btn-primary btn-xs"><i class="icon-pencil"></i></a>
                         <a data-toggle="modal" href="#userDeleteModal" class="btn btn-danger btn-xs"><i class="icon-trash "></i></a>
                     </td>
                 </tr>
+                @*@foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@item.ImagePath" style="width:29px; height:29px" />
+                            </td>
+                            <td>@item.Name</td>
+                            <td>@item.Surname</td>
+                            <td>@item.Username</td>
+                            <td>@item.Email</td>
+                            <td>@(item.IsActive ? "<span class='label label-inverse label-mini'>Aktif</span>" : "<span class='label label-default label-mini'>Pasif</span>")</td>
+                            <td>@item.PhoneNumber</td>
+                            <td>@item.BirthDate</td>
+                            <td>
+                                @switch (item.Role)
+                                {
+                                    case MVCBlogProject.MODEL.Enums.Roles.Admin:
+                                        <span class='label label-success label-mini'>Yönetici</span>
+                                        break;
+                                    case MVCBlogProject.MODEL.Enums.Roles.Banned:
+                                        <span class='label label-danger label-mini'>Yasaklı</span>
+                                        break;
+                                    case MVCBlogProject.MODEL.Enums.Roles.Editor:
+                                        <span class='label label-primary label-mini'>Yazar</span>
+                                        break;
+                                    case MVCBlogProject.MODEL.Enums.Roles.Member:
+                                        <span class='label label-info label-mini'>Üye</span>
+                                        break;
+                                }
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Edit", "User", new { ID = item.ID })" class="btn btn-primary btn-xs"><i class="icon-pencil"></i></a>
+                                <a data-toggle="modal" href="#userDeleteModal" class="btn btn-danger btn-xs"><i class="icon-trash "></i></a>
+                            </td>
+                        </tr>
+                    }*@
             </tbody>
         </table>
     </div>

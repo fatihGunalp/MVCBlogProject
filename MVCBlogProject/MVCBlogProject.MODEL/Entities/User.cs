@@ -34,11 +34,13 @@ namespace MVCBlogProject.MODEL.Entities
         public DateTime? BirthDate { get; set; }
         [Display(Name = "Yetki")]
         public Roles? Role { get; set; }
+        public Guid ActivationCode { get; set; }
+        public bool IsActive { get; set; }
 
         //todo: bir üyenin birden fazla makalesi olur.
         //todo: bir üyenin bir yetkisi olur.
         //todo: bir üyenin birden fazla yorumu olur.
-       
+
 
 
     }
