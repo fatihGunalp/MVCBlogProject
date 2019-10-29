@@ -9,7 +9,7 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
 {
     public class UserController : Controller
     {
-        // GET: Admin/User
+        //todo: UserService oluşturulduktan sonra aşağıdaki actionların işlemleri tamamlanacak.
         public ActionResult Index()
         {
             return View();
