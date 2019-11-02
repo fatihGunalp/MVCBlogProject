@@ -12,6 +12,11 @@ namespace MVCBlogProject.MODEL.Entities
 {
     public class User : CoreEntity
     {
+        public User()
+        {
+            IsActive = false;
+
+        }
         [Required(ErrorMessage = "Lütfen isim girin"), Display(Name = "Ad")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Bu alan zorunludur."), Display(Name = "Soyad")]
@@ -37,9 +42,13 @@ namespace MVCBlogProject.MODEL.Entities
         public Guid ActivationCode { get; set; }
         public bool IsActive { get; set; }
 
-        //todo: bir üyenin birden fazla makalesi olur.
-        //todo: bir üyenin bir yetkisi olur.
-        //todo: bir üyenin birden fazla yorumu olur.
+  
+
+        public virtual List<Article> Articles { get; set; }
+        public virtual Roles Roles { get; set; }
+        public virtual List<Comment> MyProperty { get; set; }
+
+
 
 
 
