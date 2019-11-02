@@ -14,7 +14,8 @@ namespace MVCBlogProject.MODEL.Entities
         public string Content { get; set; }
         public string Owner { get; set; }
 
-
+        //todo: virtual olacak.
+        //todo: çok'a çok tablo için Map işlemi esnasında çok'a çok mapleme yapılacak.
         public List<Comment> Comments { get; set; }
         public List<Tag> Tags { get; set; }
       
