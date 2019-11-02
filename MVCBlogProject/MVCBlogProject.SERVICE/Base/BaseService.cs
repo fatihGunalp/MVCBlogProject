@@ -48,7 +48,10 @@ namespace MVCBlogProject.SERVICE.Base
             Update(item);
             //Update içerisinde Save ettiği için tekrardan yazmadık.
         }
-
+        public T GetById(Guid id)
+        {
+            return db.Set<T>().Find(id);
+        }
         public void Update(T item)
         {
             // TODO: Find ile yaptığımız işlemi GetById ile yapacağız.Core katmanında ekli olmadığı için Find ile yaptık.

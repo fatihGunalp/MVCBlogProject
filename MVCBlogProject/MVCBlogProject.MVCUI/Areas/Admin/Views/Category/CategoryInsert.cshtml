@@ -1,0 +1,35 @@
+﻿@model MVCBlogProject.MODEL.Entities.Category
+
+@{
+    ViewBag.Title = "CategoryInsert";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Kategori Ekle
+            </header>
+            <div class="panel-body">
+                @using (Html.BeginForm())
+                {
+                    <div class="form-group has-success">
+                        <label class="col-lg-2 control-label">Kategori Adı</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(m => m.CategoryName, new { @class = "control-label col-md-2" })
+                            @Html.ValidationMessageFor(m => m.CategoryName, " ", new { @class = "text-danger" })
+                        </div>
+                    </div><br /><br />
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-danger" type="submit">Ekle</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+    </div>
+</div>
+
+
