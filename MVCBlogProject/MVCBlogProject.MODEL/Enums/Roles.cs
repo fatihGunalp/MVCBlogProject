@@ -10,6 +10,7 @@ namespace MVCBlogProject.MODEL.Enums
     {
         Banned,
         Member,
-        Admin
+        Admin,
+        Editor
     }
 }
