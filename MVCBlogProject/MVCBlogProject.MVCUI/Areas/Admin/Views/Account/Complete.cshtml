@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AccountLayout.cshtml";
+}
+
+@{
+    if (ViewBag.ActivationStatus == 0)
+    {
+        <div class="login-wrap">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h2>Etkinleştirme Hatası</h2>
+                </div>
+                <div class="panel-body">
+                    <p>Etkinleştirme işleminde bir hata oluştu. Hesabınızı daha önce etkinleştirdiyseniz aynı link üzerinden tekrar işlem yapamazsınız.</p>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="login-wrap">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h2>Etkinleştirme Başarılı</h2>
+                </div>
+                <div class="panel-body">
+                    <p>Tebrikler, hesabınız başarıyla etkinleştirildi. Giriş yapmak için lütfen <a class="btn-link" href="@Url.Action("Index", "Account")">tıklayın.</a></p>
+                </div>
+            </div>
+        </div>
+    }
+}

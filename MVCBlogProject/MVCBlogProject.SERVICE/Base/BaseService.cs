@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -48,7 +49,10 @@ namespace MVCBlogProject.SERVICE.Base
             Update(item);
             //Update içerisinde Save ettiği için tekrardan yazmadık.
         }
-
+        public T GetById(Guid id)
+        {
+            return db.Set<T>().Find(id);
+        }
         public void Update(T item)
         {
             // TODO: Find ile yaptığımız işlemi GetById ile yapacağız.Core katmanında ekli olmadığı için Find ile yaptık.
@@ -61,6 +65,16 @@ namespace MVCBlogProject.SERVICE.Base
         public List<T> GetAll()
         {
             return db.Set<T>().ToList();
+        }
+
+        public bool Any(Expression<Func<T, bool>> exp)
+        {
+            return db.Set<T>().Any(exp);
+        }
+
+        public T GetByDefault(Expression<Func<T, bool>> exp)
+        {
+            return db.Set<T>().Where(exp).FirstOrDefault();
         }
     }
 }

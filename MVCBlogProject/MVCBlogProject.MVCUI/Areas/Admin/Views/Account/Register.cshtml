@@ -1,0 +1,61 @@
+﻿@model User
+@{
+    ViewBag.Title = "MVC Blog";
+    Layout = "~/Areas/Admin/Views/Shared/_AccountLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-signin", enctype = "multipart/form-data" }))
+{
+    <h2 class="form-signin-heading">Kayıt Ol</h2>
+    <div class="login-wrap">
+        <p>Kişisel bilgilerinizi girin</p>
+        @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+        @Html.TextBoxFor(x => x.Name, new { type = "text", @class = "form-control", placeholder = "İsim", autofocus = "autofocus" })
+        @Html.ValidationMessageFor(x => x.Surname, null, new { @class = "text-danger" })
+        @Html.TextBoxFor(x => x.Surname, new { type = "text", @class = "form-control", placeholder = "Soyisim" })
+        @Html.TextAreaFor(x => x.Adress, new { @class = "form-control", style = "font-size:12px; margin-bottom:15px", placeholder = "Adres" })
+        <span class="text-danger">@ViewBag.ExistsEmail</span>
+        @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+        @Html.TextBoxFor(x => x.Email, new { type = "text", @class = "form-control", placeholder = "E-posta" })
+        @Html.TextBoxFor(x => x.BirthDate, new { type = "text", @class = "form-control default-date-picker", placeholder = "Doğum Tarihi", data_mask = "99/99/9999" })
+        @Html.TextBoxFor(x => x.PhoneNumber, new { type = "text", @class = "form-control", placeholder = "Telefon", data_mask = "0 (599) 999 99 99" })
+        @Html.TextBoxFor(x => x.ImagePath, new { type = "file", @class = "form-control", style = "font-size:12px" })
+        <p>Kullanıcı bilgilerinizi girin</p>
+        <span class="text-danger">@ViewBag.ExistsUser</span>
+        @Html.ValidationMessageFor(x => x.Username, null, new { @class = "text-danger" })
+        @Html.TextBoxFor(x => x.Username, new { type = "text", @class = "form-control", placeholder = "Kullanıcı Adı" })
+        @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+        @Html.TextBoxFor(x => x.Password, new { type = "password", @class = "form-control", placeholder = "Şifre" })
+        @Html.ValidationMessageFor(x => x.ConfirmPassword, null, new { @class = "text-danger" })
+        @Html.TextBoxFor(x => x.ConfirmPassword, new { type = "password", @class = "form-control", placeholder = "Şifre Tekrar" })
+
+        <button class="btn btn-lg btn-login btn-block" type="submit">Katıl</button>
+        <div class="registration">
+            Daha önce kayıt oldum >
+            <a class="" href="@Url.Action("Index", "Account")">
+                Oturum aç
+            </a>
+        </div>
+
+    </div>
+}
+@section styles{
+    <link href="~/Content/AdminTheme/assets/bootstrap-fileupload/bootstrap-fileupload.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/AdminTheme/assets/bootstrap-datepicker/css/datepicker.css" />
+}
+@section scripts{
+    <script src="~/Content/AdminTheme/js/jquery-1.8.3.min.js"></script>
+    <script src="~/Content/AdminTheme/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/AdminTheme/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="~/Content/AdminTheme/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+    <script src="~/Content/AdminTheme/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.default-date-picker').datepicker({
+                format: 'dd/mm/yyyy'
+            })
+        })
+    </script>
+}
+
