@@ -133,6 +133,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\TagController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Models\TagCategoryVM.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2058,7 +2059,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Commet\" />
     <Folder Include="Content\AdminTheme\assets\jquery-file-upload\server\node\public\files\thumbnail\" />
     <Folder Include="Content\AdminTheme\assets\jquery-file-upload\server\node\tmp\" />
