@@ -49,6 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseService.cs" />
+    <Compile Include="Option\ArticleService.cs" />
+    <Compile Include="Option\CategoryService.cs" />
+    <Compile Include="Option\CommentService.cs" />
+    <Compile Include="Option\TagService.cs" />
+    <Compile Include="Option\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
