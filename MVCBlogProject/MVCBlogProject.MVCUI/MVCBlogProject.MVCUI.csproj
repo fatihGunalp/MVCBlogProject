@@ -127,6 +127,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\ArticleController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\CommentController.cs" />
@@ -1917,6 +1918,11 @@
     <Content Include="Areas\Admin\Views\Comment\Index.cshtml" />
     <Content Include="Areas\Admin\Views\User\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_PartialDeleteUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AccountLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Success.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Complete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1957,7 +1963,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Commet\" />
     <Folder Include="Content\AdminTheme\assets\jquery-file-upload\server\node\public\files\thumbnail\" />
     <Folder Include="Content\AdminTheme\assets\jquery-file-upload\server\node\tmp\" />
     <Folder Include="Content\AdminTheme\assets\jquery-file-upload\server\php\files\thumbnail\" />
