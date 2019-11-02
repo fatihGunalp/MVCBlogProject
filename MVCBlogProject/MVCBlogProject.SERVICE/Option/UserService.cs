@@ -5,5 +5,6 @@ namespace MVCBlogProject.SERVICE.Option
 {
     public class UserService : BaseService<User>
     {
+
     }
 }
