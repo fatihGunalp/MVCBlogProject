@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -64,6 +65,16 @@ namespace MVCBlogProject.SERVICE.Base
         public List<T> GetAll()
         {
             return db.Set<T>().ToList();
+        }
+
+        public bool Any(Expression<Func<T, bool>> exp)
+        {
+            return db.Set<T>().Any(exp);
+        }
+
+        public T GetByDefault(Expression<Func<T, bool>> exp)
+        {
+            return db.Set<T>().Where(exp).FirstOrDefault();
         }
     }
 }

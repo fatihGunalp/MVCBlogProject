@@ -14,6 +14,9 @@ namespace MVCBlogProject.DAL.Model.Context
         public BlogContext()
         {
             Database.Connection.ConnectionString = "server=.;database=MCVBlog;uid=sa;pwd=123";
+            Database.SetInitializer<BlogContext>(new DropCreateDatabaseIfModelChanges<BlogContext>());
+            Database.SetInitializer<BlogContext>(new SampleData());
+            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -26,11 +29,15 @@ namespace MVCBlogProject.DAL.Model.Context
 
             base.OnModelCreating(modelBuilder);
         }
+
+
         public DbSet<Tag> Tags { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Article> Articles { get; set; }
+
+       
     }
 
 }

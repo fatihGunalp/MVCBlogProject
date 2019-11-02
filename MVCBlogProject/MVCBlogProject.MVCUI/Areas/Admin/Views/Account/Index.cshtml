@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "MVC Blog";
+    Layout = "~/Areas/Admin/Views/Shared/_AccountLayout.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-signin" }))
+{
+    <h2 class="form-signin-heading">Oturum Aç</h2>
+    <div class="login-wrap">
+        @{
+            if (TempData["Error"] != null)
+            {
+                <div class="alert alert-block alert-danger fade in">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="icon-remove"></i>
+                    </button>
+                    @TempData["Error"]
+                </div>
+            }
+        }
+        @Html.TextBox("Username", null, new { @class = "form-control", placeholder = "Kullanıcı adı veya e-posta", @autofocus = "autofocus" })
+        @Html.TextBox("Password", null, new { @class = "form-control", placeholder = "Şifre", type = "password" })
+        <label class="checkbox">
+            <input type="checkbox" value="remember-me"> Beni hatırla
+            <span class="pull-right">
+                <a data-toggle="modal" href="#myModal"> Şifremi unuttum</a>
+
+            </span>
+        </label>
+        <button class="btn btn-lg btn-login btn-block" type="submit">Giriş</button>
+        <div class="registration">
+            Henüz hesabım yok >
+            <a class="" href="@Url.Action("Register", "Account")">
+                Hesap oluştur
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Şifremi Unuttum</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Kayıtlı olan e-posta hesabınızı girerek şifrenizi sıfırlayabilirsiniz.</p>
+                    <input type="text" name="Email" placeholder="E-Posta" autocomplete="off" class="form-control placeholder-no-fix">
+
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">İptal</button>
+                    <button class="btn btn-success" type="button">Gönder</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal -->
+}
+
+<!-- js placed at the end of the document so the pages load faster -->
+@section scripts
+{
+    <script src="~/Content/AdminTheme/js/jquery.js"></script>
+    <script src="~/Content/AdminTheme/js/bootstrap.min.js"></script>
+}
