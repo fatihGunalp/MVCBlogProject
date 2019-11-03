@@ -1,8 +1,45 @@
-﻿
+﻿@model List<Comment>
 @{
-    ViewBag.Title = "Yorumlar";
+    ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>İçerik</h2>
+<section class="panel panel-primary">
+    <header class="panel-heading">
+        @ViewBag.Title
+    </header>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Başlık</th>
+                    <th>İçerik</th>
+                    <th>Yazar</th>
+                    <th>Makale</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+             
+                @foreach (var item in Model)
+                    {
+                        <tr>
+                            
+                            <td>@item.Header</td>
+                            <td>@item.Text</td>
+                            <td>@item.Owner</td>
+                            
+                         
+                                   
+                            <td>
+                                <a href="@Url.Action("Edit", "Comment", new { ID = item.ID })" class="btn btn-primary btn-xs"><i class="icon-pencil"></i></a>
+                                <a data-toggle="modal" href="#userDeleteModal" class="btn btn-danger btn-xs"><i class="icon-trash "></i></a>
+                            </td>
+                        </tr>
+                    }
+            </tbody>
+        </table>
+    </div>
+</section>
+
 
