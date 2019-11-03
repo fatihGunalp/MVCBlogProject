@@ -43,14 +43,10 @@
         </li>
 
         <li class="sub-menu">
-            <a class="@Html.IsActive("Comment")" href="javascript:;">
+            <a class="@Html.IsActive("Index", "Comment")" href="@Url.Action("Index", "Comment")">
                 <i class="icon-comment"></i>
                 <span>Yorum</span>
             </a>
-            <ul class="sub">
-                <li class="@Html.IsActive("Index", "Comment")"><a href="@Url.Action("Index", "Comment")">Listele</a></li>
-                <li class="@Html.IsActive("Create", "Comment")"><a href="@Url.Action("Create", "Comment")">Ekle</a></li>
-            </ul>
         </li>
 
         <li class="sub-menu">
