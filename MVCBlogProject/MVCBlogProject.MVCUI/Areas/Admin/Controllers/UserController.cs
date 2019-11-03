@@ -1,4 +1,5 @@
 ﻿using MVCBlogProject.MODEL.Entities;
+using MVCBlogProject.MVCUI.Filter;
 using MVCBlogProject.SERVICE.Option;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
 {
+    [AuthFilter]
     public class UserController : Controller
     {
         //todo: UserService oluşturulduktan sonra aşağıdaki actionların işlemleri tamamlanacak.
