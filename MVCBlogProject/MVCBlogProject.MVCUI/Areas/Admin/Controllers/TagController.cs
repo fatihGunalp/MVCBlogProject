@@ -1,0 +1,36 @@
+﻿using MVCBlogProject.MODEL.Entities;
+using MVCBlogProject.SERVICE.Option;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
+{
+    public class TagController : Controller
+    {
+        // GET: Admin/Tag
+        TagService db = new TagService();
+        public ActionResult Index()
+        {
+            return View(db.GetAll().ToList());
+        }
+
+        public ActionResult TagInsert()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult TagInsert(Tag tag)
+        {
+            db.Add(tag);
+
+            return RedirectToAction("Index");
+        }
+        public ActionResult TagUpdate(Guid id)
+        {
+            return View(db.GetById(id));
+        }
+    }
+}
