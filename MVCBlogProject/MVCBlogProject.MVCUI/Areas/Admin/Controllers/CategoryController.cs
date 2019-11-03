@@ -18,22 +18,41 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
             return View(db.GetAll().ToList());
         }
 
-
-        public ActionResult CategoryInsert()
+      
+        public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult CategoryInsert(Category category)
+        public ActionResult Create(Category model)
         {
-            db.Add(category);
+            model.ID = Guid.NewGuid();
+            db.Add(model);
+            return RedirectToAction("Index");
+        }
+
+       
+        public ActionResult Delete(Guid id)
+        {
+            db.Remove(db.GetById(id));
           
             return RedirectToAction("Index");
         }
 
-        public ActionResult CategoryUpdate(Guid id)
+        public ActionResult Update(Guid id)
         {
             return View(db.GetById(id));
         }
+        [HttpPost]
+        public ActionResult Update(Category model)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Update(model);
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+          
     }
 }
