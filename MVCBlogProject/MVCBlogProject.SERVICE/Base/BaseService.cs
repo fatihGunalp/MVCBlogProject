@@ -76,5 +76,17 @@ namespace MVCBlogProject.SERVICE.Base
         {
             return db.Set<T>().Where(exp).FirstOrDefault();
         }
+
+        //public int Save()
+        //{
+        //    if (db.SaveChanges() > 0)
+        //    {
+        //        return 1;
+        //    }
+        //    else
+        //    {
+        //        return -1;
+        //    }
+        //}
     }
 }
