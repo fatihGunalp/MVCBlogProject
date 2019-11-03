@@ -4,6 +4,18 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+
+
+@if (ViewBag.Error != null)
+{
+    <div class="jumbotron">
+        
+            <p>@ViewBag.Error</p>
+        
+
+    </div>
+}
+
 <section class="panel panel-primary">
     <header class="panel-heading">
         @ViewBag.Title
@@ -62,11 +74,21 @@
                 @Html.EnumDropDownListFor(x => x.Role, new { @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.Role, null, new { @class = "text-danger" })
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 @Html.LabelFor(x => x.ImagePath)
                 @Html.TextBoxFor(x => x.ImagePath, new { type = "file", @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.ImagePath, null, new { @class = "text-danger" })
+            </div>*@
+            <div class="form-group">
+                <div class="editor-label">
+                    @Html.LabelFor(i=>i.ImagePath)
+                </div>
+                <div class="editor-field">
+                    <input type="file" name="picture" />
+                    @Html.ValidationMessageFor(i=>i.ImagePath)
+                </div>
             </div>
+
 
             <button class="btn btn-primary btn-block" type="submit">Kaydet</button>
         }
