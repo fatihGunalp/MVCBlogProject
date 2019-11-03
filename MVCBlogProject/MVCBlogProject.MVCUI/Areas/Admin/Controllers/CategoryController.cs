@@ -1,4 +1,5 @@
-﻿using MVCBlogProject.DAL.Model.Context;
+﻿using MVCBlogProject.CORE.Entity.Enum;
+using MVCBlogProject.DAL.Model.Context;
 using MVCBlogProject.MODEL.Entities;
 using MVCBlogProject.SERVICE.Option;
 using System;
@@ -31,6 +32,13 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Active(Guid id)
+        {
+            Category selected = db.GetById(id);
+            selected.Status = Status.Created;
+            db.Update(selected);
+            return RedirectToAction("Index");
+        }
        
         public ActionResult Delete(Guid id)
         {
