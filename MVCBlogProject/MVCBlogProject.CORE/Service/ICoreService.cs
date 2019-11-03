@@ -18,6 +18,9 @@ namespace MVCBlogProject.CORE.Service
 
         List<T> GetAll();
 
+        List<T> GetActive();
+
+
         //int Save();
     }
 }

@@ -77,6 +77,11 @@ namespace MVCBlogProject.SERVICE.Base
             return db.Set<T>().Where(exp).FirstOrDefault();
         }
 
+        public List<T> GetActive()
+        {
+            return db.Set<T>().Where(x => x.Status == CORE.Entity.Enum.Status.Created).ToList();
+        }
+
         //public int Save()
         //{
         //    if (db.SaveChanges() > 0)
