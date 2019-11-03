@@ -17,17 +17,16 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
             return View(cs.GetAll());
         }
 
-        public ActionResult Create()
+        public ActionResult Update(Guid Id)
         {
-            return View();
+            return View(cs.GetById(Id));
         }
 
         [HttpPost]
-        public ActionResult Create(Comment model)
+        public ActionResult Update(Comment model)
         {
             if (ModelState.IsValid)
             {
-                model.ID = Guid.NewGuid();
                 cs.Add(model);
                 return RedirectToAction("Index");
             }
@@ -35,11 +34,10 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
             return View(model);
         }
 
-        public ActionResult Edit()
+        public ActionResult Delete(Guid Id)
         {
-            return View();
+            cs.Remove(cs.GetById(Id));
+            return RedirectToAction("Index");
         }
-
-
     }
 }

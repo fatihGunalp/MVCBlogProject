@@ -1,6 +1,6 @@
 ﻿@model Comment
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Yorum Düzenle";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,8 +10,9 @@
     </header>
     <div class="panel-body">
 
-        @using (Html.BeginForm("Create", "Comment", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("Edit", "Comment", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
+            @Html.HiddenFor(x => x.ID)
             <div class="form-group">
                 @Html.LabelFor(x => x.Header)
                 @Html.TextBoxFor(x => x.Header, new { @class = "form-control", autofocus = "autofocus" })
@@ -23,31 +24,12 @@
                 @Html.ValidationMessageFor(x => x.Text, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                @Html.LabelFor(x => x.Owner)
-                @Html.TextBoxFor(x => x.Owner, new { @class = "form-control" })
-                @Html.ValidationMessageFor(x => x.Owner, null, new { @class = "text-danger" })
+                @Html.LabelFor(x => x.CreatedDate)
+                @Html.TextBoxFor(x => x.CreatedDate, new { @class = "form-control" })
             </div>
-            
-
 
             <button class="btn btn-primary btn-block" type="submit">Kaydet</button>
         }
 
     </div>
 </section>
-@section styles{
-    <link rel="stylesheet" type="text/css" href="~/Content/assets/bootstrap-datepicker/css/datepicker.css" />
-}
-@section scripts{
-
-    <script type="text/javascript" src="~/Content/AdminTheme/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-    <script type="text/javascript" src="~/Content/AdminTheme/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.default-date-picker').datepicker({
-                format: 'dd/mm/yyyy'
-            })
-        })
-
-    </script>
-}
