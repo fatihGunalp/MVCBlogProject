@@ -1,5 +1,6 @@
 ﻿using MVCBlogProject.DAL.Model.Context;
 using MVCBlogProject.MODEL.Entities;
+using MVCBlogProject.MVCUI.Filter;
 using MVCBlogProject.SERVICE.Option;
 using System;
 using System.Collections.Generic;
@@ -9,12 +10,19 @@ using System.Web.Mvc;
 
 namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
 {
+    [AuthFilter]
     public class CategoryController : Controller
     {
+ 
         // GET: Admin/Category
         CategoryService db = new CategoryService();
+        
         public ActionResult Index()
         {
+            //Giriş yapan kullanıcı adını göstermek için eklendi.
+            var userDetail = Session["login"] as User;
+            TempData["User"] = userDetail.Name + " " + userDetail.Surname;
+
             return View(db.GetAll().ToList());
         }
 
