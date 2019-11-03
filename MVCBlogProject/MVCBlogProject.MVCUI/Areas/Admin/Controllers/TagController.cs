@@ -1,5 +1,4 @@
 ﻿using MVCBlogProject.MODEL.Entities;
-using MVCBlogProject.MVCUI.Areas.Admin.Models;
 using MVCBlogProject.SERVICE.Option;
 using System;
 using System.Collections.Generic;
@@ -11,49 +10,27 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
 {
     public class TagController : Controller
     {
-        //TagService tagnames = new TagService();
-        //// GET: Admin/Tag
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
+        // GET: Admin/Tag
+        TagService db = new TagService();
+        public ActionResult Index()
+        {
+            return View(db.GetAll().ToList());
+        }
 
-        //public ActionResult Add()
-        //{
-        //    return View();
-        //}
+        public ActionResult TagInsert()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult TagInsert(Tag tag)
+        {
+            db.Add(tag);
 
-        //[HttpPost]
-        //public ActionResult Add(Tag data)
-        //{
-        //    data.ID = Guid.NewGuid();
-        //    tagnames.Add(data);
-        //    return RedirectToAction("Index");
-        //}
-        //public ActionResult Update(Guid id)
-        //{
-        //    TagCategoryVM model = new TagCategoryVM();
-        //    model.TagCategories = tagnames.GetById(id);
-        //    //model.TagCategories = category.GetActive();
-        //    return View(model);
-
-
-
-
-
-        //}
-
-        //[HttpPost]
-        //public ActionResult Update(SubCategory model)
-        //{
-        //    //sub.Update(model);
-        //    return RedirectToAction("Index");
-        //}
-        //public ActionResult Delete(Guid id)
-        //{
-        //    //var deleted = sub.GetById(id);
-        //    //sub.Remove(deleted);
-        //    return RedirectToAction("Index");
-        //}
+            return RedirectToAction("Index");
+        }
+        public ActionResult TagUpdate(Guid id)
+        {
+            return View(db.GetById(id));
+        }
     }
 }
