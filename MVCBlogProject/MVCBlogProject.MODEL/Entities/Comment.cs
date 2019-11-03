@@ -14,8 +14,6 @@ namespace MVCBlogProject.MODEL.Entities
         public string Header { get; set; }
         [Display(Name = "Yazı")]
         public string Text { get; set; }
-        [Display(Name = "Yazar")]
-        public string Owner { get; set; }
 
 
         public virtual Article Article { get; set; }
