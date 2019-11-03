@@ -43,6 +43,7 @@ namespace MVCBlogProject.SERVICE.Base
             db.SaveChanges();
         }
 
+        
         public void Remove(T item)
         {
             item.Status = MVCBlogProject.CORE.Entity.Enum.Status.Deleted;

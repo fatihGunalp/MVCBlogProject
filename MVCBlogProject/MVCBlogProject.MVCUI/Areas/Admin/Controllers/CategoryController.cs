@@ -31,7 +31,7 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-       
+        //Todo: Anıl Category listeleme sayfasında bir kategori silindiğinde onay ikonuna basılırsa tekrar created olarak güncellesin.
         public ActionResult Delete(Guid id)
         {
             db.Remove(db.GetById(id));
