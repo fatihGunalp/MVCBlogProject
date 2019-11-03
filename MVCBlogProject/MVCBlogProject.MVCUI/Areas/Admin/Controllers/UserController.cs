@@ -12,6 +12,7 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
     {
         //todo: UserService oluşturulduktan sonra aşağıdaki actionların işlemleri tamamlanacak.
         UserService db = new UserService();
+        ArticleService dbArt = new ArticleService();
         public ActionResult Index()
         {
             return View(db.GetAll());
@@ -62,21 +63,97 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
            
         }
 
-        public ActionResult Edit(Guid ID)
+        public ActionResult Edit(Guid id)
         {
-            //service de getByid eklenmesi bekleniyor.
-            return View();
+
+
+
+            //User newUser = new User();
+
+            //var articles = dbArt.Update
+
+            //newUser.ID = user.ID;
+            //newUser.Email = user.Email;
+            //newUser.Name = user.Name;
+            //newUser.Surname = user.Surname;
+            //newUser.Username = user.Username;
+            //newUser.Password = user.Password;
+            //newUser.ConfirmPassword = user.ConfirmPassword;
+            //newUser.BirthDate = user.BirthDate;
+            //newUser.CreatedDate = user.CreatedDate;
+            //newUser.ImagePath = user.ImagePath;
+            //newUser.PhoneNumber = user.PhoneNumber;
+            //newUser.Role = user.Role;
+            //newUser.Status = user.Status;
+            //newUser.IsActive = user.IsActive;
+            //newUser.Adress = user.Adress;
+            //newUser.
+
+
+            return View(db.GetById(id));
+     
         }
 
         [HttpPost]
-        public ActionResult Edit(Guid Id,HttpPostedFileBase picture)
+        public ActionResult Edit(User user,HttpPostedFileBase picture)
         {
-            return RedirectToAction("Index");
+
+            try
+            {
+                var activationCodeUser = db.GetById(user.ID);
+                if (picture != null)
+                {
+                    string pictureName = System.IO.Path.GetFileName(picture.FileName);
+                    string pictureAdress = Server.MapPath("~/Uploads/" + pictureName);
+
+                    picture.SaveAs(pictureAdress);
+
+                    //var resim = Request.Form["ImagePath"];
+                    user.ImagePath = pictureAdress;
+
+
+
+                }
+
+                db.Update(activationCodeUser);
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                ViewBag.Error = e.Message;
+                return View(user);
+            }
+
         }
 
-        public ActionResult Delete()
+
+        public ActionResult Delete(Guid ID)
         {
-            return RedirectToAction("Index");
+
+
+            var deleted = db.GetById(ID);
+
+            return View(deleted);
+
+        }
+
+        [HttpPost]
+        public PartialViewResult Delete(User user)
+        {
+
+            try
+            {
+                db.Remove(user);
+                return PartialView();
+            }
+            catch (Exception e)
+            {
+
+                ViewBag.Error = e.Message;
+                return PartialView();
+            }
+            
+
         }
     }
 }
