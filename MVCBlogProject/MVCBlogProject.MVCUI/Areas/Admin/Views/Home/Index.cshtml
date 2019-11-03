@@ -1,4 +1,5 @@
 ﻿
+@model List<Comment>
 @{
     ViewBag.Title = "Anasayfa";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -60,61 +61,95 @@
 </div>
 <!--state overview end-->
 
-<div class="col-md-12">
-    <div class="col-md-6">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Makale Başlığı</th>
-                    <th>Açıklama</th>
-                    <th>İçerik</th>
-                    <th>Owner</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-
+<div class="row">
+    <div class="col-lg-4">
+        <section class="panel">
+            <header class="panel-heading">
+                Doughnut
+            </header>
+            <div class="panel-body text-center">
+                <canvas id="doughnut" height="400" width="400" style="width: 400px; height: 300px;"></canvas>
+            </div>
+        </section>
     </div>
-    <div class="col-md-6">
+    <div class="col-lg-8">
+        <!--work progress start-->
+        <section class="panel">
+            <div class="panel-body progress-panel">
+                <div class="task-progress">
+                    <h1>Makaleler</h1>
 
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Makale Başlığı</th>
-                    <th>Açıklama</th>
-                    <th>İçerik</th>
-                    <th>Owner</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+                </div>
+                <div class="task-option">
+                    <select class="styled hasCustomSelect" style="-webkit-appearance: menulist-button; width: 114px; position: absolute; opacity: 0; height: 39px; font-size: 12px;">
+                        <option>Anjelina Joli</option>
+                        <option>Tom Crouse</option>
+                        <option>Jhon Due</option>
+                    </select><span class="customSelect styled" style="display: inline-block;"><span class="customSelectInner" style="width: 92px; display: inline-block;">Anjelina Joli</span></span>
+                </div>
+            </div>
+            <table class="table table-hover personal-task">
+
+                <thead>
+                    <tr>
+                        <th>Başlık</th>
+                        <th>İçerik</th>
+                        <th>Yazar</th>
+
+                    </tr>
+
+                </thead>
+
+                @*<tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Header</td>
+                            <td>@item.Content</td>
+                            <td>@item.Owner</td>
+                            
+                        </tr>
+                    }
+                </tbody>
+                </table>*@
+            </section>
+            <!--work progress end-->
+        </div>
     </div>
-</div>
 
-<div class="col-md-12">
-    <table class="table table-bordered">
-        <thead>
+    <div class="row">
+        <div class="col-lg-12">
+            <!--work progress start-->
+            <section class="panel">
+                <div class="panel-body progress-panel">
+                
+                    <table class="table table-hover personal-task">
+                        <thead>
+                            <tr>
+                                <th>Başlık</th>
+                                <th>İçerik</th>
+                                <th>Yazar</th>
 
-            <tr>
-                <th>Adı</th>
-                <th>Soyad</th>
-                <th>E-Posta</th>
-                <th>Adres</th>
+                            </tr>
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Header</td>
+                                    <td>@item.Text</td>
+                                    <td>@item.User.Username</td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <!--work progress end-->
+        </div>
+    </div>
