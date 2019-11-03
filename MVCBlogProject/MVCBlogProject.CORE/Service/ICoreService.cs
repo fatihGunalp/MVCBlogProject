@@ -17,5 +17,7 @@ namespace MVCBlogProject.CORE.Service
         void Update(T item);
 
         List<T> GetAll();
+
+        //int Save();
     }
 }
