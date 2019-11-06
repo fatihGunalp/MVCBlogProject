@@ -54,8 +54,8 @@
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
                             <li><a href="@Url.Action("Index", "Profile", new { Id = user.ID })"><i class=" icon-suitcase"></i>Profil</a></li>
-                            <li><a href="#"><i class="icon-cog"></i>Ayarlar</a></li>
-                            <li><a href="#"><i class="icon-bell-alt"></i>Bildirimler</a></li>
+                            <li><a href="@Url.Action("Edit", "Profile", new { Id = user.ID })"><i class="icon-edit"></i>Düzenle</a></li>
+                            <li><a href="@Url.Action("Index", "Todo", new { Id = user.ID })"><i class="icon-tasks"></i>To-Do</a></li>
                             <li><a href="@Url.Action("Logout", "Account")"><i class="icon-key"></i>Çıkış</a></li>
                         </ul>
                     </li>

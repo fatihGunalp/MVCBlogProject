@@ -133,6 +133,7 @@
     <Compile Include="Areas\Admin\Controllers\CommentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TodoController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Filter\AuthFilter.cs" />
@@ -1927,6 +1928,8 @@
     <Content Include="Areas\Admin\Views\Shared\_AccountLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Profile\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Profile\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Todo\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_PartialProfileMenu.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

@@ -6,29 +6,7 @@
 
 <div class="row">
 
-    <aside class="profile-nav col-lg-3">
-        <section class="panel">
-            <div class="user-heading round">
-                <a href="#">
-                    <img src="@Model.ImagePath" alt="">
-                </a>
-                <h1>@Model.Name @Model.Surname</h1>
-                <p>@Model.Email</p>
-            </div>
-
-            <ul class="nav nav-pills nav-stacked">
-                <li class="@Html.IsActive("Index", "Profile")"><a href="@Url.Action("Index", "Profile")"> <i class="icon-user"></i> Profil</a></li>
-                <li class="@Html.IsActive("Index", "Todo")">
-                    <a href="@Url.Action("Index", "Todo")">
-                        <i class="icon-calendar"></i> To-Do Listem
-                        <span class="label label-danger pull-right r-activity">9</span>
-                    </a>
-                </li>
-                <li class="@Html.IsActive("Edit", "Profile")"><a href="@Url.Action("Edit", "Profile", new { Id = Model.ID })"> <i class="icon-edit"></i> Düzenle</a></li>
-            </ul>
-
-        </section>
-    </aside>
+    @Html.Partial("_PartialProfileMenu")
 
     <aside class="profile-info col-lg-9">
         <section class="panel panel-primary">
@@ -98,7 +76,7 @@
                         <div class="form-group">
                             @Html.Label("Password", "Yeni Şifre", new { @class = "col-lg-2 control-label" })
                             <div class="col-lg-6">
-                                @Html.TextBox("Password", null, new { @class = "form-control", type = "password" })
+                                @Html.TextBox("Password", string.Empty, new { @class = "form-control", type = "password" })
                                 @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
                             </div>
                         </div>
