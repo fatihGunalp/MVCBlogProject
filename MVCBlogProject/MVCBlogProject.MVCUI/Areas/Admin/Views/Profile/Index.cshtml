@@ -1,0 +1,73 @@
+﻿@model User
+@{
+    ViewBag.Title = "Profil";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    <aside class="profile-nav col-lg-3">
+        <section class="panel">
+            <div class="user-heading round">
+                <a href="#">
+                    <img src="@Model.ImagePath" alt="">
+                </a>
+                <h1>@Model.Name @Model.Surname</h1>
+                <p>@Model.Email</p>
+            </div>
+
+            <ul class="nav nav-pills nav-stacked">
+                <li class="@Html.IsActive("Index", "Profile")"><a href="@Url.Action("Index", "Profile")"> <i class="icon-user"></i> Profil</a></li>
+                <li class="@Html.IsActive("Index", "Todo")">
+                    <a href="@Url.Action("Index", "Todo")"> <i class="icon-calendar"></i> To-Do Listem
+                    <span class="label label-danger pull-right r-activity">9</span>
+                    </a>
+                </li>
+                <li class="@Html.IsActive("Edit", "Profile")"><a href="@Url.Action("Edit", "Profile", new { Id = Model.ID })"> <i class="icon-edit"></i> Düzenle</a></li>
+            </ul>
+
+        </section>
+    </aside>
+
+    <aside class="profile-info col-lg-9">
+        <section class="panel panel-primary">
+            <div class="panel-heading">Kişisel Bilgilerim</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="bio-row">
+                        <p><span>Ad </span>: @Model.Name</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Soyad </span>: @Model.Surname</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Kullanıcı Adı </span>: @Model.Username</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>E-Posta </span>: @Model.Email</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Makalelerim </span>: @Model.Articles.Count</p>
+                    </div>
+                    <div class="bio-row">
+                        @*TODO : Database yapısı kontrol edilecek. Sorun var gibi!!*@
+                        <p><span>Yorumlarım </span>: @Model.Articles.Where(x => Model.ID == x.ID).Count()</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Kullanıcı Rolü </span>: @Model.Role</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Adres </span>: @Model.Adress</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Telefon </span>: @Model.PhoneNumber</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Doğum Tarihi </span>: @(Model.BirthDate == null ? "Belirtilmemiş" : ((DateTime)Model.BirthDate).ToShortDateString())</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </aside>
+</div>
+
