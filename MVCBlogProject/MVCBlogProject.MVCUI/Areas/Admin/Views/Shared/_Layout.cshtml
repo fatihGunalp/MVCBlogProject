@@ -1,6 +1,7 @@
 ﻿
 @{
     Layout = null;
+    User user = Session["login"] as User;
 }
 
 <!DOCTYPE html>
@@ -46,16 +47,16 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="~/Uploads/Users/profile.jpg" style="width:29px; height:29px">
-                            <span class="username">@TempData["User"]</span>
+                            <img alt="" src="@user.ImagePath" style="width:29px; height:29px">
+                            <span class="username">@user.Name @user.Surname</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
-                            <li><a href="#"><i class=" icon-suitcase"></i>Profil</a></li>
+                            <li><a href="@Url.Action("Index", "Profile", new { Id = user.ID })"><i class=" icon-suitcase"></i>Profil</a></li>
                             <li><a href="#"><i class="icon-cog"></i>Ayarlar</a></li>
                             <li><a href="#"><i class="icon-bell-alt"></i>Bildirimler</a></li>
-                            <li><a href="login.html"><i class="icon-key"></i>Çıkış</a></li>
+                            <li><a href="@Url.Action("Logout", "Account")"><i class="icon-key"></i>Çıkış</a></li>
                         </ul>
                     </li>
                     <!-- user login dropdown end -->

@@ -1,0 +1,138 @@
+﻿@model User
+@{
+    ViewBag.Title = "Profil Düzenle";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    <aside class="profile-nav col-lg-3">
+        <section class="panel">
+            <div class="user-heading round">
+                <a href="#">
+                    <img src="@Model.ImagePath" alt="">
+                </a>
+                <h1>@Model.Name @Model.Surname</h1>
+                <p>@Model.Email</p>
+            </div>
+
+            <ul class="nav nav-pills nav-stacked">
+                <li class="@Html.IsActive("Index", "Profile")"><a href="@Url.Action("Index", "Profile")"> <i class="icon-user"></i> Profil</a></li>
+                <li class="@Html.IsActive("Index", "Todo")">
+                    <a href="@Url.Action("Index", "Todo")">
+                        <i class="icon-calendar"></i> To-Do Listem
+                        <span class="label label-danger pull-right r-activity">9</span>
+                    </a>
+                </li>
+                <li class="@Html.IsActive("Edit", "Profile")"><a href="@Url.Action("Edit", "Profile", new { Id = Model.ID })"> <i class="icon-edit"></i> Düzenle</a></li>
+            </ul>
+
+        </section>
+    </aside>
+
+    <aside class="profile-info col-lg-9">
+        <section class="panel panel-primary">
+            <div class="panel-heading"> Kişiel Bilgilerim</div>
+            <div class="panel-body">
+                @using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { @class = "form-horizontal",  enctype = "multipart/form-data" }))
+                {
+                    @Html.HiddenFor(x => x.ID)
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Name, new { @class = "col-lg-2 control-label" })
+                        <div class="col-lg-6">
+                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Surname, new { @class = "col-lg-2 control-label" })
+                        <div class="col-lg-6">
+                            @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Adress, new { @class = "col-lg-2 control-label" })
+                        <div class="col-lg-6">
+                            @Html.TextAreaFor(x => x.Adress, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.PhoneNumber, new { @class = "col-lg-2 control-label" })
+                        <div class="col-lg-6">
+                            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", data_mask = "0 (599) 999 99 99" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.BirthDate, new { @class = "col-lg-2 control-label" })
+                        <div class="col-lg-6">
+                            @Html.TextBoxFor(x => x.BirthDate, new { @class = "form-control default-date-picker", data_mask = "99/99/9999" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.ImagePath, new { @class = "col-lg-2 control-label" })
+                        <div class="col-lg-6">
+                            @Html.TextBoxFor(x => x.ImagePath, new { @class = "form-control", type = "file" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                            <button type="button" class="btn btn-default" onclick="javascript:window.history.go(-1)">İptal</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+        <section>
+            <div class="panel">
+                <div class="panel-heading"> Şifre Değiştir</div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("ChangePwd", "Profile", new { Id = Model.ID }, FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        <div class="form-group">
+                            @Html.Label("OldPassword", "Eski Şifre", new { @class = "col-lg-2 control-label" })
+                            <div class="col-lg-6">
+                                @Html.TextBox("OldPassword", null, new { @class = "form-control", type = "password" })
+                                <span class="text-danger">@TempData["ErrPass"]</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Password", "Yeni Şifre", new { @class = "col-lg-2 control-label" })
+                            <div class="col-lg-6">
+                                @Html.TextBox("Password", null, new { @class = "form-control", type = "password" })
+                                @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("ConfirmPassword", "Yeni Şifre Tekrar", new { @class = "col-lg-2 control-label" })
+                            <div class="col-lg-6">
+                                @Html.TextBox("ConfirmPassword", null, new { @class = "form-control", type = "password" })
+                                @Html.ValidationMessageFor(x => x.ConfirmPassword, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button type="submit" class="btn btn-info">Kaydet</button>
+                                <button type="button" class="btn btn-default" onclick="javascript:window.history.go(-1)">İptal</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    </aside>
+</div>
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/Content/AdminTheme/assets/bootstrap-datepicker/css/datepicker.css" />
+}
+@section scripts{
+    <script type="text/javascript" src="~/Content/AdminTheme/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="~/Content/AdminTheme/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.default-date-picker').datepicker({
+                format: 'dd/mm/yyyy'
+            })
+        })
+    </script>
+}
