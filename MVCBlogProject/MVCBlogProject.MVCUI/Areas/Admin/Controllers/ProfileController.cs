@@ -15,14 +15,14 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
     public class ProfileController : Controller
     {
         UserService db = new UserService();
-        public ActionResult Index(Guid Id)
+        public ActionResult Index()
         {
-            return View(db.GetById(Id));
+            return View(db.GetById(((User)Session["login"]).ID));
         }
 
-        public ActionResult Edit(Guid Id)
+        public ActionResult Edit()
         {
-            return View(db.GetById(Id));
+            return View(db.GetById(((User)Session["login"]).ID));
         }
 
         [HttpPost]
@@ -42,20 +42,20 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult ChangePwd(Guid Id, string OldPassword, string Password)
+        public ActionResult ChangePwd(string OldPassword, string Password)
         {
-            User user = db.GetById(Id);
+            User user = db.GetById(((User)Session["login"]).ID);
 
             if (user.Password != OldPassword)
             {
                 TempData["ErrPass"] = "Mevcut şifreniz yanlış";
-                return RedirectToAction("Edit", new { Id = user.ID });
+                return RedirectToAction("Edit");
             }
 
             user.Password = Password;
             db.Update(user);
 
-            return RedirectToAction("Index", new { Id = user.ID });
+            return RedirectToAction("Index");
         }
     }
 }

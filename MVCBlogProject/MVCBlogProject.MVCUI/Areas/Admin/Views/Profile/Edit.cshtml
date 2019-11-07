@@ -64,7 +64,7 @@
             <div class="panel">
                 <div class="panel-heading"> Şifre Değiştir</div>
                 <div class="panel-body">
-                    @using (Html.BeginForm("ChangePwd", "Profile", new { Id = Model.ID }, FormMethod.Post, new { @class = "form-horizontal" }))
+                    @using (Html.BeginForm("ChangePwd", "Profile", FormMethod.Post, new { @class = "form-horizontal" }))
                     {
                         <div class="form-group">
                             @Html.Label("OldPassword", "Eski Şifre", new { @class = "col-lg-2 control-label" })
