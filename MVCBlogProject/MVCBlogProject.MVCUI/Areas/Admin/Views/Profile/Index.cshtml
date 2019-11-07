@@ -26,11 +26,11 @@
                         <p><span>E-Posta </span>: @Model.Email</p>
                     </div>
                     <div class="bio-row">
-                        <p><span>Makalelerim </span>: @Model.Articles.Count</p>
+                        <p><span>Makalelerim </span>: @Model.Articles.Where(x => x.Status != MVCBlogProject.CORE.Entity.Enum.Status.Deleted).Count()</p>
                     </div>
                     <div class="bio-row">
                         @*TODO : Database yapısı kontrol edilecek. Sorun var gibi!!*@
-                        <p><span>Yorumlarım </span>: @Model.Articles.Where(x => Model.ID == x.ID).Count()</p>
+                        <p><span>Yorumlarım </span>: @Model.MyProperty.Where(x => x.Status != MVCBlogProject.CORE.Entity.Enum.Status.Deleted).Count()</p>
                     </div>
                     <div class="bio-row">
                         <p><span>Kullanıcı Rolü </span>: @Model.Role</p>
