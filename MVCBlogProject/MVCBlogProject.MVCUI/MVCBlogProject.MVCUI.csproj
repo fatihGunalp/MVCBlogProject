@@ -1932,6 +1932,11 @@
     <Content Include="Areas\Admin\Views\Shared\_PartialProfileMenu.cshtml" />
     <Content Include="Areas\Admin\Views\Todo\Partials\_PartialEditTask.cshtml" />
     <Content Include="Areas\Admin\Views\Todo\CompleteTask.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
