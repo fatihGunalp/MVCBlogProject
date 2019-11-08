@@ -93,10 +93,10 @@ namespace MVCBlogProject.DAL.Model
             }
             #endregion
 
+            context.SaveChanges();
             
             base.Seed(context);
 
-            context.SaveChanges();
         }
     }
 }
