@@ -8,9 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using MVCBlogProject.DAL.Model.Context;
 using MVCBlogProject.MODEL.Entities;
+using MVCBlogProject.MVCUI.Filter;
 
 namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
 {
+    //[AuthFilter]
     public class ArticleController : Controller
     {
         private BlogContext db = new BlogContext();
@@ -38,17 +40,25 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
+            var users = db.Users.ToList();
+            ViewBag.OwnerList = new SelectList(users, "ID", "Username");
             return View();
         }
 
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Header,Description,Content,Owner,Status,CreatedDate")] Article article)
+        public ActionResult Create([Bind(Include = "Header,Description,Content,Owner,Status")] Article article)
         {
+            var articleOwner = db.Users.FirstOrDefault(i => i.ID == article.Owner.ID);
+            var users = db.Users.ToList();
+            ViewBag.OwnerList = new SelectList(users, "ID", "Username");
+
+                article.ID = Guid.NewGuid();
+                article.Owner = articleOwner;
+
             if (ModelState.IsValid)
             {
-                article.ID = Guid.NewGuid();
                 db.Articles.Add(article);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -60,6 +70,8 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
         
         public ActionResult Edit(Guid? id)
         {
+            var users = db.Users.ToList();
+            ViewBag.OwnerList = new SelectList(users, "ID", "Username");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -75,8 +87,10 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Header,Description,Content,Owner,Status,CreatedDate")] Article article)
+        public ActionResult Edit([Bind(Include = "ID,Header,Description,Content,Owner,Status")] Article article)
         {
+            var users = db.Users.ToList();
+            ViewBag.OwnerList = new SelectList(users, "ID", "Username");
             if (ModelState.IsValid)
             {
                 db.Entry(article).State = EntityState.Modified;
