@@ -2070,10 +2070,10 @@
     <Content Include="Areas\Admin\Views\Shared\_PartialProfileMenu.cshtml" />
     <Content Include="Areas\Admin\Views\Todo\Partials\_PartialEditTask.cshtml" />
     <Content Include="Areas\Admin\Views\Todo\CompleteTask.cshtml" />
-    <Content Include="Areas\Admin\Views\Articles\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Articles\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Articles\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Articles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Article\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Article\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Article\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Article\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Articles\Index.cshtml" />
     <Content Include="bin\MVCBlogProject.COMMON.dll.config" />
     <Content Include="bin\MVCBlogProject.CORE.dll.config" />

@@ -7,10 +7,11 @@ using System.Web.Mvc;
 
 namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
 {
+    [AuthFilter]
     public class HomeController : Controller
     {
         // GET: Admin/Home
-        [AuthFilter]
+        
         public ActionResult Index()
         {
             return View();

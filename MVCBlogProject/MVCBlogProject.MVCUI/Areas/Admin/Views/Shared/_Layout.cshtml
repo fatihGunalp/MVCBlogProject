@@ -1,7 +1,7 @@
 ﻿
 @{
     Layout = null;
-   // User user = Session["login"] as User;
+   User user = Session["login"] as User;
 }
 
 <!DOCTYPE html>
@@ -47,8 +47,8 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="@*@user.ImagePath*@" style="width:29px; height:29px">
-                            <span class="username">@*@user.Name @user.Surname*@</span>
+                            <img alt="" src="@user.ImagePath" style="width:29px; height:29px">
+                            <span class="username">@user.Name @user.Surname</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">

@@ -9,5 +9,6 @@ namespace MVCBlogProject.SERVICE.Option
         {
             return Any(x => x.Username == _userName && x.Password == _password && x.IsActive == true);
         }
+
     }
 }

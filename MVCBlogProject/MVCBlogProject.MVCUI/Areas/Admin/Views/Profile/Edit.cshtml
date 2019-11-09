@@ -12,7 +12,7 @@
         <section class="panel panel-primary">
             <div class="panel-heading"> Kişiel Bilgilerim</div>
             <div class="panel-body">
-                @using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { @class = "form-horizontal",  enctype = "multipart/form-data" }))
+                @using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
                 {
                     @Html.HiddenFor(x => x.ID)
                     <div class="form-group">
