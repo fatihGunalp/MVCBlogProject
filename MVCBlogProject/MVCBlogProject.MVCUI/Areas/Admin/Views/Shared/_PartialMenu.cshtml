@@ -59,6 +59,12 @@
                 <li class="@Html.IsActive("Create", "User")"><a href="@Url.Action("Create", "User")">Ekle</a></li>
             </ul>
         </li>
+        <li class="sub-menu">
+            <a class="@Html.IsActive("Index", "Todo")" href="@Url.Action("Index", "Todo")">
+                <i class="icon-tasks"></i>
+                <span>Todo</span>
+            </a>
+        </li>
 
     </ul>
     <!-- sidebar menu end-->
