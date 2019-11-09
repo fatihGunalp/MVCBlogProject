@@ -1,4 +1,5 @@
 ﻿using MVCBlogProject.MODEL.Entities;
+using MVCBlogProject.MVCUI.Filter;
 using MVCBlogProject.SERVICE.Option;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
 {
+    [AuthFilter]
     public class TagController : Controller
     {
         // GET: Admin/Tag
@@ -17,8 +19,6 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
             return View(db.GetAll().ToList());
         }
 
-        //TODO: Yeni Tag eklemede GUID ID otomatik vermede ve çoka çok ilişkiden kaynaklı sorunlar var.
-
         public ActionResult TagInsert()
         {
             return View();
@@ -27,6 +27,7 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult TagInsert(Tag tag)
         {
+            tag.ID = Guid.NewGuid();
             db.Add(tag);
 
             return RedirectToAction("Index");
