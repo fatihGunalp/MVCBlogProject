@@ -39,5 +39,14 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
             cs.Remove(cs.GetById(Id));
             return RedirectToAction("Index");
         }
+
+        public ActionResult ActiveComment(Guid Id)
+        {
+            Comment comment = cs.GetById(Id);
+            comment.IsActive = true;
+            cs.Update(comment);
+
+            return RedirectToAction("Index");
+        }
     }
 }

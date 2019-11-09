@@ -14,7 +14,7 @@ namespace MVCBlogProject.MODEL.Entities
         public string Header { get; set; }
         [Display(Name = "Yazı")]
         public string Text { get; set; }
-
+        public bool IsActive { get; set; }
 
         public virtual Article Article { get; set; }
         public virtual User User { get; set; }
