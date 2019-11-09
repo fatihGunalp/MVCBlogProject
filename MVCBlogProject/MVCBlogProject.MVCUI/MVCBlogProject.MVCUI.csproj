@@ -2115,6 +2115,7 @@
     <Content Include="Content\viral\scss\_theme_color.scss" />
     <Content Include="Content\viral\style.css.map" />
     <Content Include="obj\Debug\build.force" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
