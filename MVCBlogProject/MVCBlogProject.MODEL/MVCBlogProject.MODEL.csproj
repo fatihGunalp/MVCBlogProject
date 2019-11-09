@@ -52,6 +52,7 @@
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\Tag.cs" />
+    <Compile Include="Entities\Todo.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enums\Roles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

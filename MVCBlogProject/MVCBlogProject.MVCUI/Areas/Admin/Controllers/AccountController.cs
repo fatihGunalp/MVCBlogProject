@@ -1,6 +1,7 @@
 ﻿using MVCBlogProject.COMMON.Tools;
 using MVCBlogProject.MODEL.Entities;
 using MVCBlogProject.MODEL.Enums;
+using MVCBlogProject.MVCUI.Filter;
 using MVCBlogProject.SERVICE.Option;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,11 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
                 {
                     if (db.CheckUser(model.Username, model.Password))
                     {
-                        Session["login"] = model;
+                        var user = db.GetByDefault(x => x.Username == model.Username);
+                        Session["login"] = user;
+                        //Giriş yapan kullanıcı adını göstermek için eklendi.
+                        var userDetail = Session["login"] as User;
+                        TempData["User"] = userDetail.Name + " " + userDetail.Surname;
                         return RedirectToAction("Index", "Home");
                     }
                     else

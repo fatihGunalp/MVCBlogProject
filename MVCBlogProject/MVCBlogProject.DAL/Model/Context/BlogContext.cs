@@ -26,6 +26,7 @@ namespace MVCBlogProject.DAL.Model.Context
             modelBuilder.Configurations.Add(new CommentMap());
             modelBuilder.Configurations.Add(new CategoryMap());
             modelBuilder.Configurations.Add(new ArticleMap());
+            modelBuilder.Configurations.Add(new TodoMap());
 
             base.OnModelCreating(modelBuilder);
         }
@@ -36,8 +37,9 @@ namespace MVCBlogProject.DAL.Model.Context
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Article> Articles { get; set; }
+        public DbSet<Todo> Todos { get; set; }
 
-       
+
     }
 
 }

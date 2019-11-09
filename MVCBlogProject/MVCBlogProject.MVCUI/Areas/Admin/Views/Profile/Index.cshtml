@@ -1,0 +1,52 @@
+﻿@model User
+@{
+    ViewBag.Title = "Profil";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    @Html.Partial("_PartialProfileMenu")
+
+    <aside class="profile-info col-lg-9">
+        <section class="panel panel-primary">
+            <div class="panel-heading">Kişisel Bilgilerim</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="bio-row">
+                        <p><span>Ad </span>: @Model.Name</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Soyad </span>: @Model.Surname</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Kullanıcı Adı </span>: @Model.Username</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>E-Posta </span>: @Model.Email</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Makalelerim </span>: @Model.Articles.Where(x => x.Status != MVCBlogProject.CORE.Entity.Enum.Status.Deleted).Count()</p>
+                    </div>
+                    <div class="bio-row">
+                        @*TODO : Database yapısı kontrol edilecek. Sorun var gibi!!*@
+                        <p><span>Yorumlarım </span>: @Model.MyProperty.Where(x => x.Status != MVCBlogProject.CORE.Entity.Enum.Status.Deleted).Count()</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Kullanıcı Rolü </span>: @Model.Role</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Adres </span>: @Model.Adress</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Telefon </span>: @Model.PhoneNumber</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Doğum Tarihi </span>: @(Model.BirthDate == null ? "Belirtilmemiş" : ((DateTime)Model.BirthDate).ToShortDateString())</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </aside>
+</div>
+

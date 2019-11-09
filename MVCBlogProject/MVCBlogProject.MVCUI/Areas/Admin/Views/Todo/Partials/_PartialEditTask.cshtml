@@ -1,0 +1,7 @@
+﻿@model Todo
+
+<div class="form-group">
+    @Html.HiddenFor(x => x.ID)
+    @Html.HiddenFor(x => x.UserId)
+    @Html.TextBoxFor(x => x.TaskContent, new { @class = "form-control", autocomplete = "off" })
+</div>

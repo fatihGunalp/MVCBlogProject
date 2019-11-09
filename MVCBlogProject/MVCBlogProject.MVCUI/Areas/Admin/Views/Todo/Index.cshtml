@@ -1,0 +1,104 @@
+﻿@model List<Todo>
+@{
+    ViewBag.Title = "To-Do Listesi";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    @Html.Partial("_PartialProfileMenu")
+
+    <div class="col-lg-9">
+        <section class="panel tasks-widget">
+            <header class="panel-heading">
+                @ViewBag.Title
+            </header>
+            <div class="panel-body">
+
+                <div class="task-content">
+                    <ul class="task-list">
+
+                        @foreach (Todo item in Model)
+                        {
+                            <li>
+                                <div class="task-checkbox">
+                                    <input type="checkbox" class="list-child" name="completeTask" />
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">@item.TaskContent</span>
+                                    <div class="pull-right hidden-phone">
+                                        <a class="btn btn-success btn-xs" href="@Url.Action("Complete", "Todo", new { Id = item.ID })"><i class="icon-ok"></i></a>
+                                        <a class="btn btn-primary btn-xs view" href="#" data-target="@Url.Action("Edit", "Todo", new { Id = item.ID })"><i class="icon-pencil"></i></a>
+                                        <a class="btn btn-danger btn-xs" href="@Url.Action("Delete", "Todo", new { Id = item.ID })"><i class="icon-trash "></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+                @using (Html.BeginForm("Create", "Todo"))
+                {
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.TextBox("TaskContent", null, new { @class = "form-control", autocomplete = "off", placeholder = "Görev girin..." })
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-sm pull-left">Görev Ekle</button>
+                }
+                <a class="btn btn-default btn-sm pull-right" href="@Url.Action("CompleteTask", "Todo")">Tamamlanmış Görevler</a>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        @using (Html.BeginForm("Edit", "Todo"))
+        {
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Görev Düzenle</h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">Vazgeç</button>
+                    <button class="btn btn-success" type="submit">Kaydet</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!-- modal -->
+
+@section styles{
+    <link href="~/Content/AdminTheme/css/tasks.css" rel="stylesheet">
+}
+
+@section scripts{
+    <script src="~/Content/AdminTheme/js/tasks.js" type="text/javascript"></script>
+    <script>
+        jQuery(document).ready(function () {
+            TaskList.initTaskWidget();
+
+            $("body").on("click", ".view", function () {
+                var url = $(this).data("target");
+                $.get(url, function (data) { })
+                    .done(function (data) {
+                        $("#myModal .modal-body").html(data);
+                        $("#myModal").modal("show");
+                    })
+                    .fail(function () {
+                        $("#myModal .modal-body").text("Error!!");
+                        $("#myModal").modal("show");
+                    })
+            });
+        });
+    </script>
+}

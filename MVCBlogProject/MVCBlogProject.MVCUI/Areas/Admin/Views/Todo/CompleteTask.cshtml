@@ -1,0 +1,43 @@
+﻿@model List<Todo>
+@{
+    ViewBag.Title = "Tamamlanmış Görevler";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    @Html.Partial("_PartialProfileMenu")
+
+    <div class="col-lg-9">
+        <section class="panel tasks-widget">
+            <header class="panel-heading">
+                @ViewBag.Title
+            </header>
+            <div class="panel-body">
+
+                <div class="task-content">
+                    <ul class="task-list">
+
+                        @foreach (Todo item in Model)
+                        {
+                            <li class="task-done">
+                                <div class="task-title">
+                                    <span class="task-title-sp">@item.TaskContent</span>
+                                    <div class="pull-right hidden-phone">
+                                        <a class="btn btn-success btn-xs" href="@Url.Action("Continue", "Todo", new { Id = item.ID })"><i class="icon-refresh"></i></a>
+                                        <a class="btn btn-danger btn-xs" href="@Url.Action("Delete", "Todo", new { Id = item.ID })"><i class="icon-trash "></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+                <a class="btn btn-success btn-sm pull-left" href="@Url.Action("Index", "Todo")">Devan Eden Görevler</a>
+            </div>
+        </section>
+    </div>
+</div>
+@section styles{
+    <link href="~/Content/AdminTheme/css/tasks.css" rel="stylesheet">
+}

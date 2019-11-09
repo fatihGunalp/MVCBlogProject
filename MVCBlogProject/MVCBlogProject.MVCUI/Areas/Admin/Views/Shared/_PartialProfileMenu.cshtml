@@ -1,0 +1,29 @@
+﻿@{ 
+    User user = Session["login"] as User;
+}
+
+<aside class="profile-nav col-lg-3">
+    <section class="panel">
+        <div class="user-heading round">
+            <a href="#">
+                <img src="@user.ImagePath" alt="">
+            </a>
+            <h1>@user.Name @user.Surname</h1>
+            <p>@user.Email</p>
+        </div>
+
+        <ul class="nav nav-pills nav-stacked">
+            <li class="@Html.IsActive("Index", "Profile")"><a href="@Url.Action("Index", "Profile")"> <i class="icon-user"></i> Profil</a></li>
+            <li class="@Html.IsActive("Index", "Todo")">
+                <a href="@Url.Action("Index", "Todo")">
+                    <i class="icon-calendar"></i> To-Do Listem
+                    <span class="label label-danger pull-right r-activity">
+                        @user.Todos.Where(x => x.Status != MVCBlogProject.CORE.Entity.Enum.Status.Deleted && x.IsComplete == false).Count()
+                    </span>
+                </a>
+            </li>
+            <li class="@Html.IsActive("Edit", "Profile")"><a href="@Url.Action("Edit", "Profile")"> <i class="icon-edit"></i> Düzenle</a></li>
+        </ul>
+
+    </section>
+</aside>

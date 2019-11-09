@@ -1,4 +1,5 @@
 ﻿using MVCBlogProject.MODEL.Entities;
+using MVCBlogProject.MVCUI.Filter;
 using MVCBlogProject.SERVICE.Option;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,13 @@ using System.Web.Mvc;
 
 namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
 {
+    [AuthFilter]
     public class CommentController : Controller
     {
         // GET: Admin/Comment
         CommentService cs = new CommentService();
+
+
         public ActionResult Index()
         {
             return View(cs.GetAll());

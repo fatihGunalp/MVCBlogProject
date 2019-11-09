@@ -53,6 +53,7 @@
     <Compile Include="Maps\CategoryMap.cs" />
     <Compile Include="Maps\CommentMap.cs" />
     <Compile Include="Maps\TagMap.cs" />
+    <Compile Include="Maps\TodoMap.cs" />
     <Compile Include="Maps\UserMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,7 +69,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\MVCBlogProject.MAP.dll" />
+    <Content Include="bin\Debug\MVCBlogProject.MAP.pdb" />
+    <Content Include="obj\Debug\MVCBlogProject.MAP.csproj.FileListAbsolute.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
