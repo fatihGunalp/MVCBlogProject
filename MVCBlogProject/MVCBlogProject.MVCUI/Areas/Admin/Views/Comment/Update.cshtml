@@ -1,0 +1,36 @@
+﻿@model Comment
+@{
+    ViewBag.Title = "Yorum Düzenle";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="panel panel-primary">
+    <header class="panel-heading">
+        @ViewBag.Title
+    </header>
+    <div class="panel-body">
+
+        @using (Html.BeginForm("Update", "Comment", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(x => x.ID)
+            <div class="form-group">
+                @Html.LabelFor(x => x.Header)
+                @Html.TextBoxFor(x => x.Header, new { @class = "form-control", autofocus = "autofocus" })
+                @Html.ValidationMessageFor(x => x.Header, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Text)
+                @Html.TextBoxFor(x => x.Text, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Text, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.CreatedDate)
+                @Html.TextBoxFor(x => x.CreatedDate, new { @class = "form-control" })
+            </div>
+
+            <button class="btn btn-primary btn-block" type="submit">Kaydet</button>
+        }
+
+    </div>
+</section>
+

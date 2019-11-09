@@ -2116,6 +2116,7 @@
     <Content Include="Content\viral\style.css.map" />
     <Content Include="obj\Debug\build.force" />
     <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Update.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
