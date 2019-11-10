@@ -10,6 +10,7 @@ Proje 7 katmandan oluşmaktadır. Katmanların detayları aşağıdaki gibidir;
 Referanslar=> EntityFramework (Nuget)
 
 Bu katman diğer katmanlarda tanımlı olan bütün classın çekirdek sınıflarını barındırır.
+  
   -Entity
     -IEntity
     -CoreEntity
