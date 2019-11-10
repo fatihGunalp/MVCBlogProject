@@ -1,3 +1,5 @@
+
+
 # MVCBlogProject
 YMS3423 nolu grubun blog projesi
 
