@@ -60,7 +60,7 @@ Bu katman diğer katmanlarda tanımlı olan bütün classın çekirdek sınıfla
        -TodoMap
        -UserMap
        
-   # MVCBlogProject.UI
+   # UI
    
    Referanslar=> EntityFramework (Nuget) => MVCBlogProject.CORE => MVCBlogProject.MODEL => MVCBlogProject.DAL
    
