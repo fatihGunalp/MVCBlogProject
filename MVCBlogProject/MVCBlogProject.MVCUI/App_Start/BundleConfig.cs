@@ -36,6 +36,7 @@ namespace MVCBlogProject.MVCUI
                       "~/Content/AdminTheme/css/style-responsive.css"));
 
             bundles.Add(new ScriptBundle("~/Admin/js").Include(
+                      "~/Content/AdminTheme/assets/ckeditor/ckeditor.js",
                       "~/Content/AdminTheme/js/jquery.js",
                       "~/Content/AdminTheme/js/jquery-1.8.3.min.js",
                       "~/Content/AdminTheme/js/bootstrap.min.js",
