@@ -28,6 +28,7 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(User model, HttpPostedFileBase ImagePath)
         {
+            //todo: kullanıcı adı ve email null geldiği için güncelleme yapılmıyor.
             if (ImagePath == null)
             {
                 model.ImagePath = db.GetById(model.ID).ImagePath;
@@ -36,8 +37,10 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
             {
                 model.ImagePath = ImageUploader.UploadSingleImage("~/Uploads/Users", ImagePath);
             }
-
-            db.Update(model);
+            var user = db.GetById(model.ID);
+            user.ImagePath = model.ImagePath;
+            user.ConfirmPassword = user.Password;
+            db.Update(user);
             return RedirectToAction("Index");
         }
 
@@ -53,6 +56,7 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
             }
 
             user.Password = Password;
+            user.ConfirmPassword = Password;
             db.Update(user);
 
             return RedirectToAction("Index");

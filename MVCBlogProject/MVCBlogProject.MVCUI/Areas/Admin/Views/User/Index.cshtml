@@ -40,7 +40,7 @@
                         <td>@item.BirthDate.Value.ToShortDateString()</td>
                         <td><span class='label label-success label-mini'>@item.Role</span></td>
                         <td>
-                            <a href="@Url.Action("Edit", "User", new { ID = item.ID})" class="btn btn-primary btn-xs"><i class="icon-pencil"></i></a>
+                            <a href="@Url.Action("Edit", "Profile", new { ID = item.ID})" class="btn btn-primary btn-xs"><i class="icon-pencil"></i></a>
                             <a data-toggle="modal" href="@Url.Action("Delete","User",new { ID=item.ID})" class="btn btn-danger btn-xs"><i class="icon-trash "></i></a>
                         </td>
                     </tr>

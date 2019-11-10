@@ -55,6 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\MVCBlogProject.CORE.dll.config" />
+    <None Include="bin\Debug\MVCBlogProject.DAL.dll.config" />
+    <None Include="bin\Debug\MVCBlogProject.MAP.dll.config" />
+    <None Include="bin\Debug\MVCBlogProject.MODEL.dll.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\MVCBlogProject.DAL.csproj.CopyComplete" />
+    <None Include="obj\Debug\MVCBlogProject.DAL.csprojAssemblyReference.cache" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +78,25 @@
       <Name>MVCBlogProject.MODEL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\MVCBlogProject.CORE.dll" />
+    <Content Include="bin\Debug\MVCBlogProject.CORE.pdb" />
+    <Content Include="bin\Debug\MVCBlogProject.DAL.dll" />
+    <Content Include="bin\Debug\MVCBlogProject.DAL.pdb" />
+    <Content Include="bin\Debug\MVCBlogProject.MAP.dll" />
+    <Content Include="bin\Debug\MVCBlogProject.MAP.pdb" />
+    <Content Include="bin\Debug\MVCBlogProject.MODEL.dll" />
+    <Content Include="bin\Debug\MVCBlogProject.MODEL.pdb" />
+    <Content Include="obj\Debug\MVCBlogProject.DAL.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\MVCBlogProject.DAL.dll" />
+    <Content Include="obj\Debug\MVCBlogProject.DAL.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

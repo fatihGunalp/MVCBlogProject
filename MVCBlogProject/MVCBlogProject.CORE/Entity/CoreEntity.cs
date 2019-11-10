@@ -15,6 +15,7 @@ namespace MVCBlogProject.CORE.Entity
         {
             this.CreatedDate = DateTime.Now;
             this.Status = Status.Created;
+
         }
         public Guid ID { get; set; }
         public Status Status { get; set; }

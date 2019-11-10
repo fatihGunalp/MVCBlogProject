@@ -99,32 +99,39 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(User user,HttpPostedFileBase picture)
         {
-
-            try
+            if (ModelState.IsValid)
             {
-                var activationCodeUser = db.GetById(user.ID);
-                if (picture != null)
+                try
                 {
-                    string pictureName = System.IO.Path.GetFileName(picture.FileName);
-                    string pictureAdress = Server.MapPath("~/Uploads/" + pictureName);
+                    var activationCodeUser = db.GetById(user.ID);
+                    if (picture != null)
+                    {
+                        string pictureName = System.IO.Path.GetFileName(picture.FileName);
+                        string pictureAdress = Server.MapPath("~/Uploads/" + pictureName);
 
-                    picture.SaveAs(pictureAdress);
+                        picture.SaveAs(pictureAdress);
 
-                    //var resim = Request.Form["ImagePath"];
-                    user.ImagePath = pictureAdress;
+                        //var resim = Request.Form["ImagePath"];
+                        user.ImagePath = pictureAdress;
 
 
 
+                    }
+
+                    db.Update(activationCodeUser);
+                    return RedirectToAction("Index");
                 }
-
-                db.Update(activationCodeUser);
-                return RedirectToAction("Index");
+                catch (Exception e)
+                {
+                    ViewBag.Error = e.Message;
+                    return View(user);
+                }
             }
-            catch (Exception e)
+            else
             {
-                ViewBag.Error = e.Message;
-                return View(user);
+                return View();
             }
+            
 
         }
 

@@ -38,7 +38,7 @@
             </a>
             <ul class="sub">
                 <li class="@Html.IsActive("Index", "Tag")"><a href="@Url.Action("Index", "Tag")">Listele</a></li>
-                <li class="@Html.IsActive("Create", "Tag")"><a href="@Url.Action("Create", "Tag")">Ekle</a></li>
+                <li class="@Html.IsActive("Create", "Tag")"><a href="@Url.Action("TagInsert", "Tag")">Ekle</a></li>
             </ul>
         </li>
 
@@ -58,6 +58,12 @@
                 <li class="@Html.IsActive("Index", "User")"><a href="@Url.Action("Index", "User")">Listele</a></li>
                 <li class="@Html.IsActive("Create", "User")"><a href="@Url.Action("Create", "User")">Ekle</a></li>
             </ul>
+        </li>
+        <li class="sub-menu">
+            <a class="@Html.IsActive("Index", "Todo")" href="@Url.Action("Index", "Todo")">
+                <i class="icon-tasks"></i>
+                <span>Todo</span>
+            </a>
         </li>
 
     </ul>

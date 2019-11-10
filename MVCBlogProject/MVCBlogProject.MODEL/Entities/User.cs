@@ -45,7 +45,6 @@ namespace MVCBlogProject.MODEL.Entities
   
 
         public virtual List<Article> Articles { get; set; }
-        public virtual Roles Roles { get; set; }
         public virtual List<Comment> MyProperty { get; set; }
         public virtual List<Todo> Todos { get; set; }
 

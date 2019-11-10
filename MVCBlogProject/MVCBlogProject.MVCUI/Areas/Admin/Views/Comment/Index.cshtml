@@ -31,7 +31,8 @@
                             <td>@item.Article.Header</td>
                             <td>@item.CreatedDate</td>
                             <td>
-                                <a href="@Url.Action("Edit", "Comment", new { ID = item.ID })" class="btn btn-primary btn-xs"><i class="icon-pencil"></i></a>
+                                <a href="@Url.Action("ActiveComment", "Comment", new { ID = item.ID })" class="btn btn-success btn-xs"><i class="icon-check"></i></a>
+                                <a href="@Url.Action("Update", "Comment", new { ID = item.ID })" class="btn btn-primary btn-xs"><i class="icon-pencil"></i></a>
                                 <a href="@Url.Action("Delete", "Comment", new { ID = item.ID })" class="btn btn-danger btn-xs"><i class="icon-trash "></i></a>
                             </td>
                         </tr>
@@ -40,5 +41,3 @@
         </table>
     </div>
 </section>
-
-

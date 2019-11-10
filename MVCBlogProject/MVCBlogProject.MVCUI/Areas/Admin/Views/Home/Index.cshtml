@@ -1,5 +1,5 @@
 ﻿
-@model List<Comment>
+@model MVCBlogProject.MVCUI.Areas.Admin.Models.HomeVM
 @{
     ViewBag.Title = "Anasayfa";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -12,8 +12,8 @@
                 <i class="icon-user"></i>
             </div>
             <div class="value">
-                <h1 class="count">
-                    0
+                <h1>
+                    @Model.UserCount
                 </h1>
                 <p>Toplam Kullanıcılar</p>
             </div>
@@ -25,8 +25,8 @@
                 <i class="icon-tags"></i>
             </div>
             <div class="value">
-                <h1 class=" count2">
-                    0
+                <h1>
+                    @(Model.TagCount ?? 0)
                 </h1>
                 <p>Toplam Etiketler</p>
             </div>
@@ -38,8 +38,8 @@
                 <i class="icon-shopping-cart"></i>
             </div>
             <div class="value">
-                <h1 class=" count3">
-                    0
+                <h1>
+                    @Model.Articles.Count()
                 </h1>
                 <p>Toplam Makaler</p>
             </div>
@@ -51,8 +51,8 @@
                 <i class="icon-bar-chart"></i>
             </div>
             <div class="value">
-                <h1 class=" count4">
-                    0
+                <h1>
+                    @Model.Comments.Count()
                 </h1>
                 <p>Toplam Yorumlar</p>
             </div>
@@ -100,9 +100,9 @@
 
                 </thead>
 
-                @*<tbody>
+                <tbody>
 
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.Articles)
                     {
                         <tr>
                             <td>@item.Header</td>
@@ -112,7 +112,7 @@
                         </tr>
                     }
                 </tbody>
-                </table>*@
+                </table>
             </section>
             <!--work progress end-->
         </div>
@@ -137,7 +137,7 @@
 
                         <tbody>
 
-                            @*@foreach (var item in Model)
+                            @foreach (var item in Model.Comments)
                             {
                                 <tr>
                                     <td>@item.Header</td>
@@ -145,7 +145,7 @@
                                     <td>@item.User.Username</td>
 
                                 </tr>
-                            }*@
+                            }
                         </tbody>
                     </table>
                 </div>
