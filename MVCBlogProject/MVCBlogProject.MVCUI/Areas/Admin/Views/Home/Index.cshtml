@@ -41,7 +41,7 @@
                 <h1>
                     @Model.Articles.Count()
                 </h1>
-                <p>Toplam Makaler</p>
+                <p>Toplam Makaleler</p>
             </div>
         </section>
     </div>
@@ -107,7 +107,7 @@
                         <tr>
                             <td>@item.Header</td>
                             <td>@item.Content</td>
-                            <td>@item.Owner</td>
+                            <td>@item.Owner.Username</td>
                             
                         </tr>
                     }

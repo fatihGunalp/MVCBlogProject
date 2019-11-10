@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.Content)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Owner)
+            @Html.DisplayNameFor(model => model.Owner.Username)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Status)
@@ -46,7 +46,7 @@
                 @Html.TextAreaFor(modelItem => item.Content)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Owner)
+                @Html.DisplayFor(modelItem => item.Owner.Username)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
