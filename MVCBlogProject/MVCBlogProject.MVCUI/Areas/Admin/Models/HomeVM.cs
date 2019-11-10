@@ -18,6 +18,8 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Models
 
         public List<Comment> Comments { get; set; }
 
+        public User User { get; set; }
+
 
     }
 }
