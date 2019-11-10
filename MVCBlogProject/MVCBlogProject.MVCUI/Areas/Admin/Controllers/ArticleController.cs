@@ -47,7 +47,7 @@ namespace MVCBlogProject.MVCUI.Areas.Admin.Controllers
 
        
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken, ValidateInput(false)]
         public ActionResult Create([Bind(Include = "Header,Description,Content,Owner,Status")] Article article)
         {
             var articleOwner = db.Users.FirstOrDefault(i => i.ID == article.Owner.ID);
