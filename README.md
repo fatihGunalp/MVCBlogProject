@@ -58,7 +58,7 @@ Bu katman diğer katmanlarda tanımlı olan bütün classın çekirdek sınıfla
        -TodoMap
        -UserMap
        
-   #MVCBlogProject.UI
+   # MVCBlogProject.UI
    
    Referanslar=> EntityFramework (Nuget) => MVCBlogProject.CORE => MVCBlogProject.MODEL => MVCBlogProject.DAL
    
@@ -66,7 +66,7 @@ Bu katman diğer katmanlarda tanımlı olan bütün classın çekirdek sınıfla
    
    
   
-  #COMMON
+  # COMMON
   
   katmanlarda ortak olarak kullanılacak nesneler bu katman içerisinde tanımlandı. Bu sayede her bir katmanda kullanmak istediğimiz mail gönderimi, görsel ekleme gibi işlemler bu katmandan dağıtılıyor.
   
