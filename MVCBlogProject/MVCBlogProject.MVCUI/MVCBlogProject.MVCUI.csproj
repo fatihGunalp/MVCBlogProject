@@ -1999,7 +1999,6 @@
     <Content Include="Areas\Admin\Views\Article\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Article\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Article\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Articles\Index.cshtml" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\MVCBlogProject.MVCUI.csproj.CopyComplete" />
     <Content Include="obj\Debug\MVCBlogProject.MVCUI.csprojAssemblyReference.cache" />
