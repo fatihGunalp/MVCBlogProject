@@ -14,12 +14,10 @@ Bu katman diğer katmanlarda tanımlı olan bütün classın çekirdek sınıfla
     -IEntity
     -CoreEntity
     -Enum
-    
   -Map
     -CoreMap
-    
   -Service
-    --ICoreService
+    -ICoreService
 
 # MODEL
 
